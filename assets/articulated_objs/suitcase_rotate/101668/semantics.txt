@@ -1,0 +1,5 @@
+link_0 slider button
+link_1 slider button
+link_2 hinge lid
+link_3 hinge rotation_handle
+link_4 free suitcase_body

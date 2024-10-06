@@ -1,0 +1,15 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0.0, -0.2, 0.76]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the laptop panel"
+    },
+
+    "joint_position_range": [0, 0.3], 
+    
+    "scale": 0.25
+}

@@ -1,0 +1,2 @@
+link_0 heavy microwave_body
+link_1 hinge door

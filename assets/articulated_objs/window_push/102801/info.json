@@ -1,0 +1,10 @@
+{
+    "keypoints": 
+    {"articulated_object_head": [0.5770139098167419, -0.03860904276371002, 0.048474669456481934]}, 
+
+    "keypoint_descriptions": {
+        "articulated_object_head": "the point of the window handle to slide the window"
+    },
+    
+    "scale": 0.4
+}

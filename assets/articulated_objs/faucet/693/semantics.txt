@@ -1,0 +1,3 @@
+link_0 slider stem
+link_1 hinge switch
+link_2 static faucet_base

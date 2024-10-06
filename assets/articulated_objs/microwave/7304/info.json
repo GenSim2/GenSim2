@@ -1,0 +1,20 @@
+{
+    "keypoints": {
+        "articulated_object_head": [
+            0.23566889762878418,
+            -0.002950727939605713,
+            0.6424869894981384
+        ],
+        "articulated_object_inside_base": [
+            -0.3,
+            0.1,
+            0.0
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle point of the the microwave handle",
+        "articulated_object_inside_base": "the point to drop object into the microwave"
+    },
+    "scale": 0.3,
+    "axis": "y"
+}

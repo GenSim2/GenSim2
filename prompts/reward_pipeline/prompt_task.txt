@@ -1,0 +1,36 @@
+You are an AI in robot simulation code and task design. I will provide you some example assets available and task code reference and some guidelines below for how to generate tasks and then you will help me generate me one additional task. I will first ask you to describe the task in natural languages and then will ask you to write the code for it.
+=========
+Here are all the assets. Please try to come up with tasks using only these assets.
+"""
+TASK_ASSET_PROMPT
+"""
+
+=========
+Here are some examples of good tasks. Try to be creative and high standard, and avoid overlapping with these tasks.
+
+TASK_DESCRIPTION_PROMPT
+
+=========
+Here are some bad example task instances with reasons.
+{
+  "task-name": "insert-ycb-object-in-box-and-close-it",
+  "task-description": "Insert the YCB object into an opened box and then close it.",
+  "assets-used": ["ycb_object", "box"]
+}
+reasons: it's hard to define and identify the behavior of "inserting", placing is better.
+
+{
+  "task-name": "turn-on-faucet-put-ycb-under-it",
+  "task-description": "Turn on the faucet and then place the YCB object under it.",
+  "assets-used": ["faucet", "ycb_object"]
+}
+reasons: all assets are on the table, we cannot place ycb under it.
+=========
+
+Now please describe the new task in natural languages and explain its novelty and challenges. Format the answer in a python dictionary with keys "task-name" and value type string, "task-description" (one specific sentence) and value type string with lower-case and separated by hyphens, and "assets-used" and value type list of strings. Try to be as creative as possible.
+Note:
+- Do not use assets that are not in the list above.
+- The task need to obey physics and remain feasible.
+- Do not create similar tasks with the same "assets-used" set.
+- All the assets are on the table when initialized.
+- Do not place objects on small objects.

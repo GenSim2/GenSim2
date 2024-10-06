@@ -1,0 +1,15 @@
+{
+    "scale": 0.4, 
+    
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.048678115010261536, 0.4389231204986572, 0.558432400226593]
+    }, 
+        
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the middle of the handle of the dishwasher lid"
+    },
+
+    "axis": "x"
+}

@@ -1,0 +1,154 @@
+{
+    "articulated-object": {
+        "box_rotate": {
+            "asset_name": "box",
+            "asset_description": "A box fixed on the table, with a lid connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "box_move": {
+            "asset_name": "box",
+            "asset_description": "A box that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "laptop_rotate": {
+            "asset_name": "laptop",
+            "asset_description": "A laptop fixed on the table, with a lid connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "laptop_move": {
+            "asset_name": "laptop",
+            "asset_description": "A laptop that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "faucet": {
+            "asset_name": "faucet",
+            "asset_description": "A faucet fixed on the table, with a handle connected by a revolute joint that can be turned on and off",
+            "asset_class": "Articulated Object"
+        },
+        "drawer": {
+            "asset_name": "drawer",
+            "asset_description": "A drawer fixed on the table, connected with its body by a prismatic joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "bucket_swing": {
+            "asset_name": "bucket",
+            "asset_description": "A bucket fixed on the table, with a handle connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "door": {
+            "asset_name": "door",
+            "asset_description": "A door with its frame connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "oven": {
+            "asset_name": "oven",
+            "asset_description": "An oven fixed on the table, with a door connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "dishwasher": {
+            "asset_name": "dishwasher",
+            "asset_description": "A dishwasher with a door connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "microwave": {
+            "asset_name": "microwave",
+            "asset_description": "A microwave fixed on the table, with a door connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "refrigerator": {
+            "asset_name": "refrigerator",
+            "asset_description": "A refrigerator fixed on the table, with a door connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "safe_rotate": {
+            "asset_name": "safe",
+            "asset_description": "A safe fixed on the table, with a door connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "safe_move": {
+            "asset_name": "safe",
+            "asset_description": "A safe that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "bag_swing": {
+            "asset_name": "bag",
+            "asset_description": "A bag fixed on the table, with a strap connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "bag_move": {
+            "asset_name": "bag",
+            "asset_description": "A bag that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "bag_lift": {
+            "asset_name": "bag",
+            "asset_description": "A bag that can be lifted from the table",
+            "asset_class": "Articulated Object"
+        },
+        "suitcase_rotate": {
+            "asset_name": "suitcase",
+            "asset_description": "A suitcase fixed on the table, with a lid connected by a revolute joint that can be opened and closed",
+            "asset_class": "Articulated Object"
+        },
+        "suitcase_move": {
+            "asset_name": "suitcase",
+            "asset_description": "A suitcase that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "switch": {
+            "asset_name": "switch",
+            "asset_description": "A switch with a frame connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "toaster_press": {
+            "asset_name": "toaster",
+            "asset_description": "A toaster fixed on the table, with a button connected by a prismatic joint",
+            "asset_class": "Articulated Object"
+        },
+        "toaster_move": {
+            "asset_name": "toaster",
+            "asset_description": "A toaster that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "toilet": {
+            "asset_name": "toilet",
+            "asset_description": "A toilet fixed on the table, lid connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "washing_machine": {
+            "asset_name": "washing_machine",
+            "asset_description": "A washing machine fixed on the table, with a door connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "window_push": {
+            "asset_name": "window",
+            "asset_description": "A window with a frame connected by a prismatic joint that can be pushed left and right",
+            "asset_class": "Articulated Object"
+        },
+        "window_rotate": {
+            "asset_name": "window",
+            "asset_description": "A window with a frame connected by a revolute joint",
+            "asset_class": "Articulated Object"
+        },
+        "bucket_move": {
+            "asset_name": "bucket",
+            "asset_description": "A bucket that can be moved on the table",
+            "asset_class": "Articulated Object"
+        },
+        "bucket_lift": {
+            "asset_name": "bucket",
+            "asset_description": "A bucket that can be lifted from the table",
+            "asset_class": "Articulated Object"
+        },
+        "stapler_press": {
+            "asset_name": "stapler",
+            "asset_description": "A stapler fixed on the table, with its handle connected to its body by a revolute joint that can be pressed",
+            "asset_class": "Articulated Object"
+        },
+        "stapler_move": {
+            "asset_name": "stapler",
+            "asset_description": "A stapler that can be moved on the table",
+            "asset_class": "Articulated Object"
+        }
+    }
+}

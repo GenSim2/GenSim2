@@ -1,0 +1,66 @@
+You are an expert in solving robotic tasks by coding task solution configs. Now please solve the newly generated task by generating the task solution config. 
+The task solution config contains necessary positions, parameters and keypoints for an existing trajectory optimization algorithm to solve a feasible solution. It mainly contains two parts, constraints and pre/post-actuation motions:
+(1) The constraints are used to ensure the gripper to be in contact with the object and to implicitly define a certain actuation pose.
+(2) The pre-actuation motions are used to move the gripper to the actuation pose, while the post-actuation motions are used to complete the task after the actuation pose.
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the pre/post-actuation part of some task solution configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+# pre-actuation and post-actuation motions for the manipulator. 
+# Each motion is represented in the [mode,value] format
+# mode: translate or rotate
+# value: [x,y,z], which is the corrdinates relative to the handle end of the tool for translate or radian for rotate
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", 0.06], ["translate_z", -0.08]] # [adjust gripper direction and approach, move gripper above lid]
+
+# post-actuation pose list
+post_actuation_motions: [["rotate", 0.75]] # [press lid down]
+
+# trajectory time
+actuation_time: 24 # time to reach task goal pose
+pre_actuation_times: [16, 20]
+post_actuation_times: [32]
+
+"""
+
+"""
+task_name: TurnOnFaucet
+category_name: Articulated
+
+# Pre-actuation and post-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", 0], ["translate_y", 0], ["translate_z", -0.05]] # [move the tool handle above]
+
+# post-actuation pose list. pushing down
+post_actuation_motions: [["translate_z", 0.03], ["translate_y", -0.1], ["translate_x", 0.05]] # [turn the handle by 90 degree from left to right, turn the handle by 180 degree from left to right]
+
+# trajectory time
+actuation_time: 12  # time to reach task goal pose
+pre_actuation_times: [8]
+post_actuation_times: [16, 18, 24]
+
+"""
+
+=========
+
+Now please generate the pre/post-actuation motions for task "TASK_NAME_TEMPLATE" in the same config format as the above based on the constraint part that is generated previously.
+Do not use terms that you have not seen before. 
+The output should be in the YAML format with no extra text.
+Notice that the pre-actuation and post-actuation motions are relative to the actuation pose and the translation motions are represented in corrdinates relative to the manipulator base. Let's think step by step, try your best to understand the job, if you can generate perfect solution configs, I will give you $10,000 tip.

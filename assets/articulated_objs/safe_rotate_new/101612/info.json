@@ -1,0 +1,11 @@
+{
+    "keypoints": {"articulated_object_head": [0.3435588777065277, -0.03660935163497925, 0.656937837600708]}, 
+    
+    "keypoint_descriptions": {"articulated_object_head": "the middle point of the the safe handle"}, 
+    
+    "scale": 0.2,
+
+    "joint_position_range": [0, 1.57],
+
+    "axis": "y"
+}

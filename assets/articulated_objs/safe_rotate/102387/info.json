@@ -1,0 +1,24 @@
+{
+    "keypoints": {
+        "articulated_object_head": [
+            -0.10422862321138382,
+            0.009084567427635193,
+            0.9177964329719543
+        ],
+        "articulated_object_inside_base": [
+            -0.17633777479112722,
+            0.004062993115269864,
+            0
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle point of the the safe handle",
+        "articulated_object_inside_base": "the point inside the safe to drop objects"
+    },
+    "scale": 0.35,
+    "joint_position_range": [
+        -0.785,
+        0.785
+    ],
+    "axis": "y"
+}

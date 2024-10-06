@@ -1,0 +1,6 @@
+link_0 slider translation_tray
+link_1 slider translation_tray
+link_2 slider translation_tray
+link_3 hinge door
+link_4 hinge door
+link_5 heavy oven_body

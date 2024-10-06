@@ -1,0 +1,115 @@
+Now I will provide you with some reference code and you can write the code for the task "TASK_NAME_TEMPLATE".
+
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import *
+
+
+class CloseBox(GenSimBaseTask):
+    """Close a box."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Close a box."
+        self.sub_tasks = ["CloseBox"]
+        self.sub_task_descriptions = ["Close a box"]
+        self.success_criteria = ["articulated_closed"]
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="box_rotate", asset_id=asset_id)
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+
+        return self.env.get_observation()
+"""
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, progress_reward, check_openness
+
+
+class OpenLaptop(GenSimBaseTask):
+    """Open a laptop."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Open a Laptop"
+        self.sub_tasks = ["OpenLaptop"]
+        self.sub_task_descriptions = ["Open a laptop"]
+        self.success_criteria = ["articulated_open"]
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="laptop_rotate", asset_id=asset_id)
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+
+        return self.env.get_observation()
+"""
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, check_openness, progress_reward
+from gensim2.env.utils.pose import *
+
+
+class TurnOnFaucet(GenSimBaseTask):
+    """Turn on a faucet."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Turn on a faucet."
+        self.sub_tasks = ["TurnOnFaucet"]
+        self.sub_task_descriptions = ["Turn on a faucet"]
+        self.success_criteria = ["articulated_open"]
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="faucet", asset_id=asset_id)     
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+
+        return self.env.get_observation()      
+"""
+
+The generated code should follow the same structure as the reference code and call similar functions.
+
+DO NOT USE libraries, extra functions, properties, arguments or assets that YOU DON'T KNOW. 
+
+For the functions used, remember to import them from the corresponding files as the example task codes.
+
+For the articulated object, use "self.articulator" to refer it, which should be the same as the "assets-used" of the task.
+
+For the objects used, you only have to pass the corresponding parameter (e.g, articulator) and its name (string format, e.g., 'box') in the `__init__` function as shown in above codes, and the base class will automatically load them.
+
+Please comment the code liberally to explain what each piece does and why it's written that way.
+
+Now write the code for the task "TASK_NAME_TEMPLATE" in python code block starting with ```python.  Reminder: TASK_STRING_TEMPLATE

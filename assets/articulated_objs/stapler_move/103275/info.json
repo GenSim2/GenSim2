@@ -1,0 +1,16 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.3, 0.58]
+    }, 
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the tip of the stapler"
+    },
+    
+    "scale": 0.1,
+
+    "joint_position_range": [0, 0.2]
+
+    }

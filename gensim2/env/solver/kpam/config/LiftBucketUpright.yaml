@@ -1,0 +1,41 @@
+category_name: Articulated
+constraint_list:
+- keypoint_name: tool_tail
+  target_keypoint_name: articulated_object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+- axis_from_keypoint_name: tool_tail
+  axis_to_keypoint_name: tool_head
+  target_axis:
+  - 0
+  - 0
+  - -1
+  target_axis_frame: object
+  target_inner_product: 1
+  tolerance: 0.01
+  type: frame_axis_parallel
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis:
+  - 0
+  - 0
+  - 1
+  target_axis_frame: world
+  target_inner_product: 1
+  tolerance: 0.01
+  type: frame_axis_parallel
+object_keypoint_name_list:
+- articulated_object_head
+post_actuation_motions:
+- move-up
+- move-up
+pre_actuation_motions:
+- - translate_z
+  - -0.2
+- - translate_x
+  - -0.1
+task_name: LiftBucketUpright
+tool_keypoint_name_list:
+- tool_head
+- tool_tail
+- tool_side

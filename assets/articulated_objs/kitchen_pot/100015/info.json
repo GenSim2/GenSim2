@@ -1,0 +1,10 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.507146418094635, 0.02970375120639801]
+    }, 
+        
+    "keypoint_descriptions": {"articulated_object_head": "the middle point on the handle of the pot"}, 
+    
+    "scale": 0.25
+}

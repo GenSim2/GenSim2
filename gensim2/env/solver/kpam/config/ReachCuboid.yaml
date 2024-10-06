@@ -1,0 +1,42 @@
+
+
+task_name: ReachCuboid
+category_name: RigidBody
+
+tool_keypoint_name_list: [tool_head, tool_tail, tool_side]
+object_keypoint_name_list: [rigidbody_object_head]
+
+constraint_list:
+
+- keypoint_name: tool_tail
+  target_keypoint_name: rigidbody_object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure surface of the gripper to be parallel to the laptop lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: -1
+  type: frame_axis_parallel
+
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis: [0, 0, 1.0]
+  target_axis_frame: world
+  tolerance: 0.01
+  target_inner_product: 1
+  type: frame_axis_parallel
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_z", -0.2]] # [adjust gripper direction and approach, move gripper above lid]
+
+# post-actuation pose list.
+post_actuation_motions: [] # [press lid down]
+
+# trajectory time
+actuation_time: 20 # time to reach task goal pose
+pre_actuation_times: [12]
+post_actuation_times: []

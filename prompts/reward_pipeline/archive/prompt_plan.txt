@@ -1,0 +1,82 @@
+We have some manipulation tasks, which need you to generate executable plans according to their descriptions. The plan can only use the following template:
+
+[optional]
+The manipulator's palm should move close to `obj`.
+
+[optional]
+The manipulator's palm holds `obj` as a tool.
+
+[optional]
+The manipulator's palm should grasp `obj`.
+
+[optional]
+`obj1` needs to be close to `obj2`.
+
+[optional]
+`obj1` needs to be close to `pos`.
+
+[optional]
+`obj` needs to be placed at a height of `num`.
+
+[optional]
+`obj` needs to be rotated by `num` degrees along `axis_name` axis.
+
+[optional]
+`obj` needs to be {open, closed}.
+
+[optional]
+The `part1` to `part2` direction of `obj1` needs to be {parallel, perpendicular} to `axis_name` axis.
+
+You should always obey the following rules:
+1. Every optional step can be used more than once. If the step has nothing to do with the task, just ignore it.
+2. Do not invent new motion descriptions.
+3. If the task consists of several sub-tasks, make sure that the manipulator completes the sub-tasks in a proper order.
+4. Always replace `obj`/`obj1`/`obj2` with a specific object, which can only be selected from the following list: [bucket, faucet, laptop, box, hammer, ycb, pin, spatula, object].
+5. Always replace `num` with a certain numerical value. If you are not sure which value to fill in, just give a value based on your best guess.
+6. Always replace `pos` with a certain position. If you are not sure which value to fill in, just give a value based on your best guess.
+7. When it comes to `{open, closed}` or `{parallel, perpendicular}`, replace it with one status selected from the given set.
+8. Always replace `part1`/'part2' with a specific part, which can only be selected from the following list: [head, tail, side].
+9. Always replace `axis_name' with a specific axis, which can only be selected from the following list: [x, y, z].
+10. If tools are used in the task, the palm cannot grasp. 
+11. When filling in `obj`/`obj1`/`obj2` with specific objects, it is necessary to specify the part of the object, which can be selected from the following list: ['head', 'tail', 'side'].
+12. You can never use an object or phrase that is not provided.
+
+Now if you understand, please say yes and tell me what you need to do. Then I will show you some examples for reference.
+
+[example]
+Task: Close the laptop
+Plan: 
+The manipulator's palm should move close to laptop.
+Laptop needs to be closed.
+
+[example]
+Task: Open the box, place ycb object inside and close it
+Plan: 
+The manipulator's palm should move close to box.
+Box needs to be open.
+The manipulator's palm should move close to ycb.
+The manipulator's palm should grasp ycb.
+YCB should be placed close to box center.
+Box needs to be closed.
+
+[example]
+Task: Use the hammer to press the pin
+Plan:
+The manipulator's palm holds hammer as a tool.
+Hammer's head needs to be close to pin's head.
+The head to tail direction of hammer should be parallel to z axis.
+The head to side direction of hammer should be perpendicular to z axis.
+Pin's head needs to placed at a height of 0.0.
+
+[example]
+Task: use the spatula to scoop the object
+Plan:
+The manipulator's palm holds spatula as a tool.
+Spatula's head needs to be close to object's head.
+THe head to tail direction of spatula should be perpendicular to z axis.
+The head to side direction of spatula should be perpendicular to z axis.
+Object's head needs to placed at a height of 0.5.
+
+Now please write a plan for the new task with the following information:
+task name: "TASK_NAME_TEMPLATE"
+task description: "TASK_DESCRIPTION_TEMPLATE"

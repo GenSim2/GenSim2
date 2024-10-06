@@ -1,0 +1,13 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0.671174168586731, 0.07, -0.08052298426628113]
+    },
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the handle of the window, push leftward/rightward to close/open"
+    },
+
+    "scale": 0.35
+}

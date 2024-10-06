@@ -1,0 +1,24 @@
+The uploaded image visualizes the actuation pose defined by the constraints you generated. Do you think your constraints for the task solver config can solve your task "TASK_STRING_TEMPLATE", given the pre/post actuation motions can be perfectly defined?  Be as rigorous and high-standard as possible.
+
+Reminder:
+your task name:
+TASK_STRING_TEMPLATE
+
+task description:
+TASK_DESCRIPTION_TEMPLATE
+
+
+=========
+Reply explain your reason and then say whether the task solver passes the test (True or False), formatted in a python dictionary, do not miss commas or add extra spaces. Here are some examples.
+
+{
+	"task_name": "sort-color-blocks",
+	"task_descriptions": "Pick up differently colored blocks and place them into separate bowls of matching color."
+	"reason": ""
+	"pass": "",
+}
+
+=========
+
+Please incorporate these feedbacks when you design new task solvers.
+

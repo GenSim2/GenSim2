@@ -1,0 +1,17 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.33401694893836975, -0.232931418, -0.229748733]
+    }, 
+        
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the middle point on edge of the door"
+    }, 
+    
+    "scale": 0.4,
+
+    "joint_position_range": [-1.57, -0.1],
+
+    "axis": "y"
+}

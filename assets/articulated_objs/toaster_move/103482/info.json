@@ -1,0 +1,9 @@
+{
+    "keypoints": {"articulated_object_head": [0.000519797, 0.533425987, 0.750723541]}, 
+    
+    "keypoint_descriptions": {"articulated_object_head": "the midpoint of the top edge of the toaster"},
+    
+    "scale": 0.2,
+
+    "joint_position_range": [0, 0.12]
+}

@@ -1,0 +1,1 @@
+python gensim2/pipeline/run_pipeline.py prompt_folder=keypoint_pipeline_longhorizon_bottomup prompt_data_folder=data_longhorizon/ mode=bottomup

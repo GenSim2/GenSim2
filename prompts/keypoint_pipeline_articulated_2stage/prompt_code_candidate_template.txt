@@ -1,0 +1,10 @@
+Now I will provide you with some reference code and you can write the code for the task "TASK_NAME_TEMPLATE".
+
+"""
+TASK_CODE_REFERENCE_TEMPLATE
+"""
+
+
+Do not use libraries, extra functions, and assets that you don't know.
+
+Now write the code for the task "TASK_NAME_TEMPLATE" in Python code block starting with ```python.  Reminder: TASK_STRING_TEMPLATE

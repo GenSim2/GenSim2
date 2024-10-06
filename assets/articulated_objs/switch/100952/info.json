@@ -1,0 +1,17 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0.04803462699055672, -0.44820255041122437, 0.24340979754924774], 
+        "articulated_object_tail": [-0.03601038083434105, 0.49174994230270386, 0.09453631937503815]
+    }, 
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the bottom tip of the switch, used to turn on the light", 
+        "articulated_object_tail": "the top of the switch, used to turn off the light"
+    },
+    
+    "scale": 0.05, 
+    
+    "axis": "x"
+}

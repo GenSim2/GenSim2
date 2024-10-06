@@ -1,0 +1,5 @@
+link_0 hinge handle
+link_1 hinge handle
+link_2 hinge rotation_lid
+link_3 hinge lock
+link_4 heavy box_body

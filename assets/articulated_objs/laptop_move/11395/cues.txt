@@ -1,0 +1,2 @@
+link_0 free base_side keyboard touchpad_surface button button base_frame
+link_1 hinge shaft shaft screen screen_frame camera other_leaf

@@ -1,0 +1,19 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.16432857513427734, 0.08, 0.25057440996170044], 
+        "articulated_object_tail": [0.24, 0.08, 0]
+    },
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the window",
+        "articulated_object_tail": "the midpoint of the joint connecting the windiw to the frame"
+    },
+
+    "scale": 0.35,
+
+    "axis": "y",
+
+    "joint_position_range": [0.56, 2.0]
+}

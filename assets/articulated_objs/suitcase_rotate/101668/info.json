@@ -1,0 +1,18 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.02450309693813324, 0.21547481417655945, 0.7515053153038025], 
+        "articulated_object_tail": [-0.026706784963607788, -0.5204471945762634, 0.04466516524553299]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the suitcase lid",
+        "articulated_object_tail": "the midpoint of the joint connecting the suitcase lid and body"
+    },
+    "scale": 0.2, 
+    
+    "axis": "x",
+
+    "joint_position_range": [-0.785, 0.8]
+}

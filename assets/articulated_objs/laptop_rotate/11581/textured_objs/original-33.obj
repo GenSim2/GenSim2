@@ -1,0 +1,13 @@
+# SSTK version 0.8.0
+# 33
+mtllib original-33.mtl
+o mesh32/mesh32-geometry#mesh32-geometry
+v 0.418475 -0.206333 0.250722
+v 0.411041 -0.206333 0.250722
+v 0.414736 -0.206333 0.239571
+vn 0 -1 0
+vn 0 1 0
+usemtl material_0_0
+f 1//1 2//1 3//1
+usemtl material_1_0
+f 3//2 2//2 1//2

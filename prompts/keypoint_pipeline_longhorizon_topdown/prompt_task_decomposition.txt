@@ -1,0 +1,58 @@
+You are an expert in creating robotic simulation environments and tasks. A robot arm with a 2-finger gripper is used in all the robotic simulation environments and tasks. In each task, there are exactly one articulated object and one rigid body object that you can manipulate. You will be given long-horizon tasks with each task including at least 2 sub-tasks. Each sub-task can only include one simple motion such as moving the gripper to some object, opening or closing the gripper fingers, or interacting with certain articulated objects by its prismatic/revolute joints. 
+
+Please come up with a decomposition of the given long-horizon task to get several sub-tasks. Some rules of such decomposition are listed here:
+1. Each long-horizon task can not include over 5 sub-tasks, and usually 3-4 are enough.
+2. Each sub-task should only include one simple motion as mentioned.
+3. Each sub-task(except "grasp" and "ungrasp") should be presented in the format of a python dictionary with keys "task-name" and value type string with lower-case and separated by hyphens, "task-description" (one specific sentence) and value type string, "assets-used" and value type list with necessary asset(s) in the current sub-task, and "success-criteria" (choose from "articulated_open", "articulated_closed", "distance_articulated_rigidbody", "distance_gripper_rigidbody", and "distance_gripper_articulated") and value type list of strings.
+4. Each sub-task should have only one asset used in the task.
+5. If the motion of opening or closing the gripper fingers is included in the whole task, it should be listed as a separate sub-task, whose "task-name" should strictly be "grasp" or "ungrasp" respectively and should be the only key in the dictionary.
+
+--------------------
+Here is an example of the decompisition of the following long-horizon task "place-baseball-in-box":
+{
+"task-name": "place-baseball-in-box",
+"task-description": "place the baseball into the opened box with gripper",
+"assets-used": ["box", "baseball"]
+}
+
+Output:
+# Sub-task 1
+''' python
+{
+"task-name": "reach-baseball",
+"task-description": "reach the baseball and make the baseball between gripper fingers",
+"assets-used": ["baseball"],
+"success-criteria": ["distance_gripper_rigidbody"]
+}
+'''
+
+# Sub-task 2
+''' python
+{
+"task-name": "grasp"
+}
+'''
+
+# Sub-task 3
+''' python
+{
+"task-name": "move-inside-box",
+"task-description": "move the gripper into the box",
+"assets-used": ["box"],
+"success-criteria": ["distance_articulated_rigidbody"]
+}
+'''
+
+# Sub-task 4
+''' python
+{
+"task-name": "ungrasp"
+}
+'''
+
+-------------------
+Now please start to generate a sub-task decomposition of the following new task:
+
+"""
+TASK_DESCRIPTION_TEMPLATE
+"""

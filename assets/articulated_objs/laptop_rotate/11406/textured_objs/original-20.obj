@@ -1,0 +1,16 @@
+# SSTK version 0.8.0
+# 20
+mtllib original-20.mtl
+o mesh20/mesh20-geometry#mesh20-geometry
+v 0.474189 -0.145346 -0.037394
+v -0.475565 -0.145346 -0.027834
+v 0.474189 -0.145346 -0.027835
+v -0.475565 -0.145346 -0.037394
+vn 0 1 0
+vn 0 -1 0
+usemtl material_0_0
+f 1//1 2//1 3//1
+f 1//1 4//1 2//1
+usemtl material_1_0
+f 3//2 2//2 1//2
+f 2//2 4//2 1//2

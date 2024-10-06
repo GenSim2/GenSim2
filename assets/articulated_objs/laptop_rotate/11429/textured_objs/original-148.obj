@@ -1,0 +1,12 @@
+# SSTK version 0.8.0
+# 148
+mtllib original-148.mtl
+o mesh353/mesh353-geometry#mesh353-geometry
+v 0.386127 -0.115443 0.379974
+v 0.370039 -0.115443 0.392558
+v 0.386127 -0.115443 0.405141
+vn 0 1 0
+vn 0 -1 0
+usemtl material_0_0
+f 1//1 2//1 3//1
+f 3//2 2//2 1//2

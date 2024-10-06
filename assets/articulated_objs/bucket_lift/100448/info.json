@@ -1,0 +1,20 @@
+{
+    "scale": 0.2,
+    "keypoints": {
+        "articulated_object_head": [
+            0.03239280357956886,
+            1.001573085784912,
+            0.029211632907390594
+        ],
+        "articulated_object_above": [
+            0.03239280357956886,
+            1.001573085784912,
+            -0.2
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle of the bucket handle",
+        "articulated_object_above": "the point above the bucket to drop the object in"
+    },
+    "axis": "x"
+}

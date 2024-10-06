@@ -1,0 +1,26 @@
+{
+    "scale": 0.25,
+    "keypoints": {
+        "articulated_object_head": [
+            0.04437717795372009,
+            0.6643964648246765,
+            -0.12939082086086273
+        ],
+        "articulated_object_tail": [
+            0.011562362313270569,
+            -0.17021414637565613,
+            -0.12939102947711945
+        ],
+        "articulated_object_surface_base": [
+            -0.4,
+            0,
+            0.4
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the midpoint of the edge of the laptop surface",
+        "articulated_object_tail": "the midpoint of the joint connecting the laptop surface and panel",
+        "articulated_object_surface_base": "the point to drop object on the laptop surface"
+    },
+    "axis": "x"
+}

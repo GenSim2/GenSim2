@@ -1,0 +1,21 @@
+{
+    "scale": 0.3,
+
+    "keypoints": 
+    {
+        "articulated_object_head": [0.0, 0.8, -0.3],
+        "articulated_object_tail": [0.0, 0.15, -0.28],
+        "articulated_object_inside_base": [-0.2, 0, 0.35]
+    },
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the box lid",
+        "articulated_object_tail": "the midpoint of the joint connecting the box lid and body",
+        "articulated_object_inside_base": "the point to drop object into the box"
+    },
+    
+    "axis": "x",
+
+    "joint_position_range": [-1.65, -0.3]
+}

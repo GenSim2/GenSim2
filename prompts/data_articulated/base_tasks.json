@@ -1,0 +1,44 @@
+{
+    "turn_on_faucet": {
+        "assets-used": [
+            "faucet"
+        ],
+        "task-description": "Turn on a faucet.",
+        "task-name": "turn-on-faucet"
+    },
+    "open_laptop": {
+        "assets-used": [
+            "laptop_rotate"
+        ],
+        "task-description": "Open a laptop",
+        "task-name": "open-laptop"
+    },
+    "open_box": {
+        "assets-used": [
+            "box_rotate"
+        ],
+        "task-description": "Open a box",
+        "task-name": "open-box"
+    },
+    "turn_off_faucet": {
+        "assets-used": [
+            "faucet"
+        ],
+        "task-description": "Turn off a faucet.",
+        "task-name": "turn-off-faucet"
+    },
+    "close_laptop": {
+        "assets-used": [
+            "laptop_rotate"
+        ],
+        "task-description": "Close a laptop",
+        "task-name": "close-laptop"
+    },
+    "close_box": {
+        "assets-used": [
+            "box_rotate"
+        ],
+        "task-description": "Close a box",
+        "task-name": "close-box"
+    }
+}

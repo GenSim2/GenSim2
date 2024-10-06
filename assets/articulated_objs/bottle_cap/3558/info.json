@@ -1,0 +1,14 @@
+{
+    "scale": 0.2, 
+    
+    "keypoints": 
+    {
+        "articulated_object_head": [0.01106418311595917, 0.12274087965488434, 0.8779745101928711]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the middle of the botton"
+    }
+
+}

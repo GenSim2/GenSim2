@@ -1,0 +1,84 @@
+We have some robotic manipulation tasks, which need you to generate executable reward functions according to their descriptions and plans. All the codes can only call the following functions:
+
+REWARD_LIBRARY
+
+You should always obey the following rules:
+1. Once you have chosen which object to fill in the function, add 'self.' as prefix. For example, replace 'palm' with 'self.palm'.
+2. If you are not sure which value to fill in, just give a value based on your best guess.
+3. Do not invent new functions or classes. The only allowed functions you can call are the ones listed above. Do not leave unimplemented code blocks in your response.
+4. Some objects, such as bucket, should have the opening pointing upward throughout the manipulation. So the related tasks are not necessarily better when completed faster.
+5. Every optional function can be used more than once. If the function has nothing to do with the task, just ignore it.
+6. Make sure that rewards are added according to the order of the plan.
+
+Now if you understand, please say yes and tell me what you need to do. Then I will show you some examples for reference.
+
+[example]
+Task: Turn on faucet
+Objects:
+(1) Manipulator / Gripper Keypoint Descriptions
+    
+"tool_head": "the middle point between the two finger tips",
+"tool_tail": "the middle point between the two finger bases",
+"tool_side": "the tip of the right finger"
+
+(2) Object Keypoint Descriptions
+"articulated_object_head": "the tip of the faucet handle",
+"articulated_object_tail": "the intersection point between the faucet handle and the faucet joint"
+
+You can access these keypoints by doing the following:
+"""
+self.tool_T_tcp = self.articulator.get_keypoint_T_tcp('articulated_object_head')
+"""
+
+Plan: 
+The manipulator's hand should move close to the faucet.
+Faucet needs to be open.
+Reward:
+```
+def get_reward(self):
+    reaching_reward_coef = 1
+    openness_reward_coef = 1
+
+    if not self.success_planned:
+        return -0.1
+
+    self.faucet_T_tcp = self.articulator.get_keypoint_T_tcp('articulated_object_head')
+
+    reaching_reward, reaching_done = l2_norm_reward(self.faucet_T_tcp)
+    openness_reward, openness_done = joint_fraction_reward(
+        openness=self.articulator.get_openness()[0], fraction=1.0
+    )
+
+    reward_list = [
+        (reaching_reward_coef * reaching_reward, reaching_done),
+        (openness_reward_coef * openness_reward, openness_done),
+    ]
+
+    reward = progress_reward(reward_list)
+
+    return reward
+```
+
+Now please implement the `get_reward` function for the new task with the following information:
+Task: "TASK_NAME_TEMPLATE"
+Objects:
+(1) Manipulator / Gripper Keypoint Descriptions
+
+TOOL_KEYPOINT_DESC
+(2) Object Keypoint Descriptions
+
+OBJECT_KEYPOINT_DESC
+Plan: 
+"TASK_PLAN_TEMPLATE"
+Environment Code:
+"""
+ENVIRONMENT_CODE
+
+    def get_reward(self):
+        
+        # TODO Implement reward function here. 
+
+        return reward
+"""
+
+Do not generate additional texts other than code, such as explanation. Only respond with the implementation of the `get_reward` function. DO NOT CREATE HYPOTHETICAL FUNCTIONS, ONLY USE WHAT IS AVAILABLE TO YOU.

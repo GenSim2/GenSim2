@@ -1,0 +1,4 @@
+link_0 slider slider
+link_1 slider slot
+link_2 slider slot
+link_3 free toaster_body

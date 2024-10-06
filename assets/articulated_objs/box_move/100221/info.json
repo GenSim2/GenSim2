@@ -1,0 +1,15 @@
+{
+    "scale": 0.22,
+
+    "keypoints": 
+    {
+        "articulated_object_head": [0.0, 0, 0.45]
+    },
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the box body"
+    },
+
+    "joint_position_range": [0, 0.2]
+}

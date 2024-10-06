@@ -1,0 +1,57 @@
+task_name: UnlockOvenDoor
+category_name: Articulatedd
+
+tool_keypoint_name_list: [tool_head, tool_tail, tool_side]
+
+constraint_list:
+# ensure the gripper to be in contact with the oven handle
+- keypoint_idx: 1
+  keypoint_name: tool_tail
+  target_keypoint_idx: 0
+  target_keypoint_name: object_handle
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure the gripper to be aligned with the oven handle
+- axis_from_keypoint_idx: 0
+  axis_from_keypoint_name: tool_head
+  axis_to_keypoint_idx: 1
+  axis_to_keypoint_name: tool_tail
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: object_handle
+  target_axis_to_keypoint_idx: 1
+  target_axis_to_keypoint_name: object_handle_end
+  tolerance: 0.1
+  type: keypoint_alignment
+  target_inner_product: 1
+
+# ensure the gripper to approach the handle from the correct direction
+- axis_from_keypoint_idx: 0
+  axis_from_keypoint_name: tool_head
+  axis_to_keypoint_idx: 2
+  axis_to_keypoint_name: tool_side
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: object_handle
+  target_axis_to_keypoint_idx: 2
+  target_axis_to_keypoint_name: object_handle_side
+  tolerance: 0.001
+  type: keypoint_orthogonal
+  target_inner_product: 0
+
+
+
+# for pre-actuation and post-actuation poses relative to the tool. 
+# Z axis positive points from gripper to fingers and X axis points to the front direction. 
+# Each pose is represented in the [[x,y,z,roll,pitch,yaw]] format
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_poses_intool: [[0.06,0,-0.05,0,0,0],[0.06,0,0,0,0,0]] # [adjust gripper direction, approach]
+
+# post-actuation pose list
+post_actuation_poses_intool: [[0,0,0.1,0,1.57,0]] # [rotate handle to vertical position]
+
+# trajectory time
+actuation_time: 24 # time to reach task goal pose
+pre_actuation_times: [16, 20]
+post_actuation_times: [32]

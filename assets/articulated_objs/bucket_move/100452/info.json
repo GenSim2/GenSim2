@@ -1,0 +1,16 @@
+{
+    "scale": 0.2, 
+
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.45, 0.35]
+    }, 
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the nearest point of the bucket edge"
+    },
+
+    "joint_position_range": [0, 0.3]
+
+}

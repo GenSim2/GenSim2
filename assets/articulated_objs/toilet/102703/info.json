@@ -1,0 +1,12 @@
+{
+    "keypoints": {"articulated_object_head": [-0.007833564653992653, 0.26265913248062134, 0.7866212129592896]},
+
+    "keypoint_descriptions": {
+        "articulated_object_head": "the midpoint of the edge of the box lid"
+    },
+
+    "scale": 0.3,
+
+    "axis": "x"
+
+}

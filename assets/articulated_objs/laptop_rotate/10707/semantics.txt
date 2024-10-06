@@ -1,0 +1,2 @@
+link_0 free laptop_base
+link_1 hinge screen

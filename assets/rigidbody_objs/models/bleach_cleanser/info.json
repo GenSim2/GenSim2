@@ -1,0 +1,9 @@
+{
+    "keypoints": {
+        "rigidbody_object_head": [0, 0, 0.1]
+    }, 
+    
+    "keypoint_descriptions": {"rigidbody_object_head": "the center of the top surface of the object"},
+    
+    "scale": 0.7
+}

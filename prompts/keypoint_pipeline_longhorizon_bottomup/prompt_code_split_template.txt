@@ -1,0 +1,190 @@
+Now I will provide you with some reference code and you can write the code for the task "TASK_NAME_TEMPLATE".
+
+====================================================
+Here is the reference code for a whole long-horizon task:
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, check_openness, progress_reward
+
+
+class MoveBaseballInsideBox(GenSimBaseTask):
+    """Open the box, put the baseball inside the box, and close the box."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Open the box, put the baseball inside the box, and close the box."
+        self.sub_tasks = [
+            "OpenBox",
+            "ReachBall",
+            "Grasp",
+            "MoveInsideBox",
+            "UnGrasp",
+            "CloseBox"
+        ]
+        self.sub_task_descriptions = [
+            "Open a box",
+            "Reach a ball-like object",
+            "Close the gripper",
+            "Move the gripper inside the box",
+            "Open the gripper",
+            "Close a box",
+        ]
+        self.success_criteria = [
+            "articulated_open",
+            "distance_gripper_rigidbody",
+            "",
+            "distance_articulated_rigidbody",
+            "",
+            "articulated_closed",
+        ]
+
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="box_rotate", rigid_body="baseball", asset_id=asset_id)
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.rigid_body, self.rigid_body_name)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_random_pose(self.rigid_body, self.rigid_body_name, task=self.task_type)
+            
+        return self.env.get_observation()
+
+"""
+====================================================
+Here is the reference codes for some subtasks:
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, check_openness, progress_reward
+
+
+class OpenBox(GenSimBaseTask):
+    """Open a box."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Open a box."
+        self.sub_tasks = ["OpenBox"]
+        self.sub_task_descriptions = ["Open a box"]
+        self.success_criteria = ["articulated_open"]
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="box_rotate", asset_id=asset_id)        
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+
+        return self.env.get_observation()
+
+
+"""
+
+"""
+import numpy as np
+import sapien.core as sapien
+import transforms3d
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.rewards import *
+import gym
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, alignment_reward, progress_reward, check_qpos
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, check_openness, progress_reward
+
+class ReachBall(GenSimBaseTask):
+    """Reach the baseball with gripper fingers"""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Reach a ball-like object."
+        self.sub_tasks = ["ReachBall"]
+        self.sub_task_descriptions = ["Reach a ball-like object"]
+        self.success_criteria = ["distance_gripper_rigidbody"]
+        # Initialize the task with the microwave as the articulated object and the cracker box as the rigid body object.
+        super().__init__(env, rigid_body="baseball")
+        
+
+    def reset(self, random=False):
+        # Reset the environment to the default state or a random state.
+        super().reset()
+
+        if not random:
+            set_default_pose(self.rigid_body, self.rigid_body_name)
+        else:
+            set_random_pose(self.rigid_body, self.rigid_body_name, task=self.task_type)
+
+            
+        return self.env.get_observation()
+
+"""
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import *
+from gensim2.env.utils.rewards import l2_distance_reward, joint_fraction_reward, check_openness, progress_reward
+
+
+class MoveInsideBox(GenSimBaseTask):
+    """Move the gripper into a box."""
+
+    def __init__(self, env, asset_id=""):
+        self.task_description = "Move the gripper inside the box."
+        self.sub_tasks = ["MoveInsideBox"]
+        self.sub_task_descriptions = ["Move the gripper inside the box"]
+        self.success_criteria = ["distance_articulated_rigidbody"]
+        # For articulated tasks, articulator should be specified, while others should be None.
+        super().__init__(env, articulator="box_rotate", rigid_body=None, asset_id=asset_id)
+
+    def reset(self, random=False):
+        super().reset()
+
+        if not random:
+            set_default_openness(self.articulator, self.articulator_name, self.asset_id)
+            set_default_pose(self.articulator, self.articulator_name, self.asset_id)
+        else:
+            set_random_pose(self.articulator, self.articulator_name, self.asset_id, self.task_type)
+            set_random_openness(self.articulator, self.articulator_name, self.asset_id)
+
+        return self.env.get_observation()
+
+"""
+==========================================================
+Rules:
+The generated code should follow the same structure as the reference code and call similar functions.
+
+Do not use libraries, extra functions, properties or argument and assets that you don't know. 
+
+For the functions used, remember to import them from the corresponding files as the example task codes.
+
+For the articulated object, use "self.articulator" to refer it. The rigid body object should be referred to as "self.rigid_body".
+
+The "articulator" argment in the `__init__` should be the same as the first term in the "assets-used" of the task, the "rigid_body" should be the same as the second term in the "assets-used" of the task.
+
+You only have to pass the corresponding parameter (e.g, articulator) and its name (string format, e.g., 'drawer') in the `__init__` function as shown in above codes, and the base class will automatically load them.
+
+Please comment the code liberally to explain what each piece does and why it's written that way.
+
+Now write the code for the task "TASK_NAME_TEMPLATE" in python code block starting with ```python.  Reminder: TASK_STRING_TEMPLATE

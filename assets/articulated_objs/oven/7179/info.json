@@ -1,0 +1,12 @@
+{
+    "keypoints": 
+    { 
+        "articulated_object_head": [-0.056840941309928894, 0.42693793773651123, 0.4617432653903961]
+    }, 
+    
+    "keypoint_descriptions": {"articulated_object_head": "the middle point of the oven handle"}, 
+    
+    "scale": 0.25, 
+    
+    "axis": "x"
+}

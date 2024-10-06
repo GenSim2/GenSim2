@@ -1,0 +1,21 @@
+[
+    {
+        "pre_actuation_motions": [["translate_x", -0.1], ["translate_z", -0.15]]
+    },
+
+    {
+        "pre_actuation_motions": [["translate_x", 0.1], ["translate_z", -0.1]]
+    },
+
+    {
+        "pre_actuation_motions": [["translate_z", -0.1]]
+    },
+
+    {
+        "pre_actuation_motions": [["translate_z", -0.15], ["translate_x", -0.1]]
+    },
+
+    {
+        "pre_actuation_motions": [["translate_z", -0.15], ["translate_x", 0.1]]
+    }
+]

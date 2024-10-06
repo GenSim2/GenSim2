@@ -1,0 +1,9 @@
+{
+    "keypoints": {"articulated_object_head": [0.07889629900455475, 0.9997390508651733, 0.0174277201294899]}, 
+    
+    "keypoint_descriptions": {"articulated_object_head": "the middle point on the strap of the bag"},
+    
+    "scale": 0.2,
+
+    "axis": "x"
+}

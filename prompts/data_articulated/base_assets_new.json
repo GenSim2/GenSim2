@@ -1,0 +1,651 @@
+{
+    "strap": [
+        {
+            "asset_name": "strap",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/strap/101673/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/strap/101673/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/strap/101673/keypoints.json"
+        },
+        {
+            "asset_name": "strap",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/strap/101681/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/strap/101681/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/strap/101681/keypoints.json"
+        }
+    ],
+    "toaster": [
+        {
+            "asset_name": "toaster",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/toaster/103559/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/toaster/103559/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/toaster/103559/keypoints.json"
+        },
+        {
+            "asset_name": "toaster",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/toaster/103498/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/toaster/103498/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/toaster/103498/keypoints.json"
+        },
+        {
+            "asset_name": "toaster",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/toaster/103482/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/toaster/103482/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/toaster/103482/keypoints.json"
+        }
+    ],
+    "box": [
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/meta.json/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/meta.json/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/meta.json/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/cues.txt/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/cues.txt/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/cues.txt/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/result.json/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/result.json/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/result.json/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/new_objs/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/new_objs/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/new_objs/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/images/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/images/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/images/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/semantics.txt/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/semantics.txt/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/semantics.txt/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/model0_info.json/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/model0_info.json/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/model0_info.json/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/textured_objs/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/textured_objs/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/textured_objs/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/result_original.json/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/result_original.json/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/result_original.json/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/mobility_v2.json/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/mobility_v2.json/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/mobility_v2.json/keypoints.json"
+        },
+        {
+            "asset_name": "box",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/box/mobility.urdf/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/box/mobility.urdf/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/box/mobility.urdf/keypoints.json"
+        }
+    ],
+    "bottle_cap": [
+        {
+            "asset_name": "bottle_cap",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/bottle_cap/4043/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/bottle_cap/4043/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/bottle_cap/4043/keypoints.json"
+        },
+        {
+            "asset_name": "bottle_cap",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/bottle_cap/3558/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/bottle_cap/3558/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/bottle_cap/3558/keypoints.json"
+        }
+    ],
+    "stapler": [
+        {
+            "asset_name": "stapler",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/stapler/103099/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/stapler/103099/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/stapler/103099/keypoints.json"
+        },
+        {
+            "asset_name": "stapler",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/stapler/102990/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/stapler/102990/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/stapler/102990/keypoints.json"
+        },
+        {
+            "asset_name": "stapler",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/stapler/103275/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/stapler/103275/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/stapler/103275/keypoints.json"
+        }
+    ],
+    "suitcase": [
+        {
+            "asset_name": "suitcase",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/suitcase/103762/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/suitcase/103762/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/suitcase/103762/keypoints.json"
+        },
+        {
+            "asset_name": "suitcase",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/suitcase/101668/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/suitcase/101668/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/suitcase/101668/keypoints.json"
+        },
+        {
+            "asset_name": "suitcase",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/suitcase/103755/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/suitcase/103755/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/suitcase/103755/keypoints.json"
+        }
+    ],
+    "drawer": [
+        {
+            "asset_name": "drawer",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/drawer/19179/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/drawer/19179/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/drawer/19179/keypoints.json"
+        },
+        {
+            "asset_name": "drawer",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/drawer/29921/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/drawer/29921/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/drawer/29921/keypoints.json"
+        }
+    ],
+    "coffee_machine_lid": [
+        {
+            "asset_name": "coffee_machine_lid",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/coffee_machine_lid/103030/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/coffee_machine_lid/103030/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/coffee_machine_lid/103030/keypoints.json"
+        },
+        {
+            "asset_name": "coffee_machine_lid",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/coffee_machine_lid/103069/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/coffee_machine_lid/103069/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/coffee_machine_lid/103069/keypoints.json"
+        }
+    ],
+    "bucket_handle": [
+        {
+            "asset_name": "bucket_handle",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/bucket_handle/100464/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/bucket_handle/100464/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/bucket_handle/100464/keypoints.json"
+        },
+        {
+            "asset_name": "bucket_handle",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/bucket_handle/100452/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/bucket_handle/100452/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/bucket_handle/100452/keypoints.json"
+        }
+    ],
+    "switch": [
+        {
+            "asset_name": "switch",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/switch/100952/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/switch/100952/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/switch/100952/keypoints.json"
+        },
+        {
+            "asset_name": "switch",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/switch/100976/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/switch/100976/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/switch/100976/keypoints.json"
+        }
+    ],
+    "oven": [
+        {
+            "asset_name": "oven",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/oven/7221/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/oven/7221/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/oven/7221/keypoints.json"
+        },
+        {
+            "asset_name": "oven",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/oven/7179/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/oven/7179/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/oven/7179/keypoints.json"
+        },
+        {
+            "asset_name": "oven",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/oven/7138/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/oven/7138/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/oven/7138/keypoints.json"
+        },
+        {
+            "asset_name": "oven",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/oven/7201/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/oven/7201/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/oven/7201/keypoints.json"
+        }
+    ],
+    "dishwasher": [
+        {
+            "asset_name": "dishwasher",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/dishwasher/12553/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/dishwasher/12553/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/dishwasher/12553/keypoints.json"
+        },
+        {
+            "asset_name": "dishwasher",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/dishwasher/12428/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/dishwasher/12428/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/dishwasher/12428/keypoints.json"
+        },
+        {
+            "asset_name": "dishwasher",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/dishwasher/11700/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/dishwasher/11700/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/dishwasher/11700/keypoints.json"
+        }
+    ],
+    "toilet_lid": [
+        {
+            "asset_name": "toilet_lid",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/toilet_lid/102703/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/toilet_lid/102703/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/toilet_lid/102703/keypoints.json"
+        },
+        {
+            "asset_name": "toilet_lid",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/toilet_lid/102622_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/toilet_lid/102622_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/toilet_lid/102622_link_0/keypoints.json"
+        }
+    ],
+    "button": [
+        {
+            "asset_name": "button",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/button/103559/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/button/103559/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/button/103559/keypoints.json"
+        },
+        {
+            "asset_name": "button",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/button/103498/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/button/103498/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/button/103498/keypoints.json"
+        },
+        {
+            "asset_name": "button",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/button/103482/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/button/103482/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/button/103482/keypoints.json"
+        }
+    ],
+    "kichen_pot": [
+        {
+            "asset_name": "kichen_pot",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/kichen_pot/100038/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/kichen_pot/100038/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/kichen_pot/100038/keypoints.json"
+        },
+        {
+            "asset_name": "kichen_pot",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/kichen_pot/100015/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/kichen_pot/100015/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/kichen_pot/100015/keypoints.json"
+        },
+        {
+            "asset_name": "kichen_pot",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/kichen_pot/100040/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/kichen_pot/100040/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/kichen_pot/100040/keypoints.json"
+        }
+    ],
+    "washing_machine": [
+        {
+            "asset_name": "washing_machine",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/washing_machine/103508_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/washing_machine/103508_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/washing_machine/103508_link_0/keypoints.json"
+        },
+        {
+            "asset_name": "washing_machine",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/washing_machine/103480_link_6/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/washing_machine/103480_link_6/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/washing_machine/103480_link_6/keypoints.json"
+        }
+    ],
+    "microwave": [
+        {
+            "asset_name": "microwave",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/microwave/7263/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/microwave/7263/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/microwave/7263/keypoints.json"
+        },
+        {
+            "asset_name": "microwave",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/microwave/7320/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/microwave/7320/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/microwave/7320/keypoints.json"
+        },
+        {
+            "asset_name": "microwave",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/microwave/7310/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/microwave/7310/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/microwave/7310/keypoints.json"
+        }
+    ],
+    "safe": [
+        {
+            "asset_name": "safe",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/safe/101612/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/safe/101612/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/safe/101612/keypoints.json"
+        },
+        {
+            "asset_name": "safe",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/safe/102301/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/safe/102301/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/safe/102301/keypoints.json"
+        }
+    ],
+    "refrigerator": [
+        {
+            "asset_name": "refrigerator",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/refrigerator/10638/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/refrigerator/10638/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/refrigerator/10638/keypoints.json"
+        },
+        {
+            "asset_name": "refrigerator",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/refrigerator/11178/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/refrigerator/11178/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/refrigerator/11178/keypoints.json"
+        },
+        {
+            "asset_name": "refrigerator",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/refrigerator/11231/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/refrigerator/11231/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/refrigerator/11231/keypoints.json"
+        },
+        {
+            "asset_name": "refrigerator",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/refrigerator/12252/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/refrigerator/12252/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/refrigerator/12252/keypoints.json"
+        }
+    ],
+    "window": [
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/103056/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/103056/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/103056/keypoints.json"
+        },
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/102801_link_1/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/102801_link_1/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/102801_link_1/keypoints.json"
+        },
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/102801_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/102801_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/102801_link_0/keypoints.json"
+        },
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/103135_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/103135_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/103135_link_0/keypoints.json"
+        },
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/103149/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/103149/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/103149/keypoints.json"
+        },
+        {
+            "asset_name": "window",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/window/102906_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/window/102906_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/window/102906_link_0/keypoints.json"
+        }
+    ],
+    "trash_can": [
+        {
+            "asset_name": "trash_can",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/trash_can/102209_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/trash_can/102209_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/trash_can/102209_link_0/keypoints.json"
+        },
+        {
+            "asset_name": "trash_can",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/trash_can/102155_link_2/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/trash_can/102155_link_2/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/trash_can/102155_link_2/keypoints.json"
+        },
+        {
+            "asset_name": "trash_can",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/trash_can/102181_link_0/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/trash_can/102181_link_0/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/trash_can/102181_link_0/keypoints.json"
+        }
+    ],
+    "laptop": [
+        {
+            "asset_name": "laptop",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/laptop/new_objs/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/laptop/new_objs/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/laptop/new_objs/keypoints.json"
+        },
+        {
+            "asset_name": "laptop",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/laptop/9960/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/laptop/9960/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/laptop/9960/keypoints.json"
+        },
+        {
+            "asset_name": "laptop",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/laptop/9912/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/laptop/9912/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/laptop/9912/keypoints.json"
+        }
+    ],
+    "door": [
+        {
+            "asset_name": "door",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/door/8877/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/door/8877/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/door/8877/keypoints.json"
+        },
+        {
+            "asset_name": "door",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/door/9281/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/door/9281/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/door/9281/keypoints.json"
+        },
+        {
+            "asset_name": "door",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/door/9388/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/door/9388/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/door/9388/keypoints.json"
+        },
+        {
+            "asset_name": "door",
+            "asset_description": "",
+            "asset_class": "Articulated Object",
+            "asset_path": "assets/articulated_objs/door/9168/mobility.urdf",
+            "keypoints_path": "assets/articulated_objs/door/9168/model0_info.json",
+            "gpt_keypoints_path": "assets/articulated_objs/door/9168/keypoints.json"
+        }
+    ],
+    
+    "nut-bolt": [
+        {
+            "asset_name": "nut-bolt",
+            "asset_description": "A nut attached to a bolt with a prismatic joint and slides up and down the bolt.",
+            "asset_class": "Tool",
+            "asset_path": "assets/tooled_objs/nut_bolt/model0.urdf",
+            "keypoints_path": "assets/tooled_objs/nut_bolt/model0_info.json",
+            "gpt_keypoints_path": "assets/tooled_objs/nut_bolt/keypoints.json"
+        }
+    ]
+}

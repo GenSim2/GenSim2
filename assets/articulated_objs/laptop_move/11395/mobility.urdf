@@ -1,0 +1,661 @@
+<robot name="partnet_9eb06745445806576e14170ade57410">
+	<link name="base" />
+	<link name="link_0">
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/11395_link_0_1.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/11395_link_0_2.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="new_objs/11395_link_0_0.obj" />
+			</geometry>
+		</collision>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-26.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-71.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-13.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-14.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-24.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-69.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-37.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-22.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-21.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-28.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-73.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-74.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-75.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-76.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-77.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-78.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-79.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-80.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-81.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-82.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-83.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-86.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-87.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-84.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-85.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-64.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-88.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-72.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-63.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-60.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-62.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-54.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-52.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-49.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-47.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-41.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-39.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-33.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-31.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-23.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-18.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-20.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-68.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-15.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-17.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-25.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-29.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-27.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-30.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-38.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-32.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-40.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-35.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-45.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-46.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-48.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-42.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-50.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-55.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-59.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-58.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-53.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-51.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-36.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-43.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-34.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-112.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-16.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-19.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-44.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-57.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-56.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-61.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-70.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-66.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-65.obj" />
+			</geometry>
+		</visual>
+		<visual name="keyboard-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-67.obj" />
+			</geometry>
+		</visual>
+		<visual name="touchpad_surface-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/new-2.obj" />
+			</geometry>
+		</visual>
+		<visual name="button-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/new-1.obj" />
+			</geometry>
+		</visual>
+		<visual name="button-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/new-0.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-111.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-97.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-100.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-98.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-96.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-99.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-108.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-109.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-104.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-107.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-110.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-106.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-102.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-105.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-103.obj" />
+			</geometry>
+		</visual>
+		<visual name="base_frame-part[&quot;id]">
+			<origin xyz="0 0 0" />
+			<geometry>
+				<mesh filename="textured_objs/original-93.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_0" type="prismatic">
+		<origin rpy="1.570796326794897 0 -1.570796326794897" xyz="0 0 0" />
+		<axis xyz="0 0 -1" />
+		<child link="link_0" />
+		<parent link="base" />
+		<limit lower="0.0" upper="0.3"/>
+	</joint>
+	<link name="link_1">
+		<collision>
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="new_objs/11395_link_1_1.obj" />
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="new_objs/11395_link_1_0.obj" />
+			</geometry>
+		</collision>
+		<visual name="shaft-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/original-2.obj" />
+			</geometry>
+		</visual>
+		<visual name="screen-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/new-3.obj" />
+			</geometry>
+		</visual>
+		<visual name="screen_frame-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/new-4.obj" />
+			</geometry>
+		</visual>
+		<visual name="screen_frame-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/original-8.obj" />
+			</geometry>
+		</visual>
+		<visual name="camera-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/original-4.obj" />
+			</geometry>
+		</visual>
+		<visual name="other_leaf-part[&quot;id]">
+			<origin xyz="-0.6730280000000004 0.2151984389210292 0.1623739963423227" />
+			<geometry>
+				<mesh filename="textured_objs/original-11.obj" />
+			</geometry>
+		</visual>
+		</link>
+	<joint name="joint_1" type="fixed">
+		<origin xyz="0.6730280000000004 -0.2151984389210292 -0.1623739963423227" />
+		<child link="link_1" />
+		<parent link="link_0" />
+	</joint>
+</robot>

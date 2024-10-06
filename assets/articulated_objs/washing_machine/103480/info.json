@@ -1,0 +1,12 @@
+{
+    "keypoints": {"articulated_object_head": [-0.599132239818573, 0.2357858419418335, 0.52006596326828]},
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the machine lid"
+    },
+    
+    "scale": 0.3,
+
+    "axis": "y"
+}

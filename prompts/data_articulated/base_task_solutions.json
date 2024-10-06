@@ -1,0 +1,8 @@
+{
+    "open_box": "gensim2/env/solver/kpam/config/OpenBox.yaml",
+    "close_box": "gensim2/env/solver/kpam/config/CloseBox.yaml",
+    "open_laptop": "gensim2/env/solver/kpam/config/OpenLaptop.yaml",
+    "close_laptop": "gensim2/env/solver/kpam/config/CloseLaptop.yaml",
+    "turn_on_faucet": "gensim2/env/solver/kpam/config/TurnOnFaucet.yaml",
+    "turn_off_faucet": "gensim2/env/solver/kpam/config/TurnOffFaucet.yaml"
+}

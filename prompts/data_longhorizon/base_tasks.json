@@ -1,0 +1,9 @@
+{
+    "move_mug_into_drawer": {
+        "assets-used": [
+            "drawer", "mug"
+        ],
+        "task-description": "Open the drawer, pick up the mug, and place it inside the drawer.",
+        "task-name": "move-mug-into-drawer"
+    }
+}

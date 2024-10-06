@@ -1,0 +1,55 @@
+# @package _global_
+root_dir: ${oc.origin_tasks:GENSIM_ROOT} # set this ENV variable if you didn't `python setup.py develop`
+
+tag: default
+debug: False
+gpt_temperature: 0.3 # GPT-4 response temperature. higher means more diversity
+solver_temperature: 0.8 # Solver response temperature. higher means more diversity
+prompt_folder: keypoint_pipeline_articulated_3stage # the prompt folder that stores the prompt chain
+max_env_run_cnt: 1 # maximum number of runs for each environment
+num_tasks: 1 # how many tasks to generate
+solver_trials: 3 # how many times of spawning each solver generated
+max_regeneration: 5 # how many times of regenerating the prompt
+output_folder: 'logs/'
+model_output_dir: '' # to be filled in with date
+gpt_model: "gpt-4-1106-preview" # which openai gpt model to use
+openai_key: ${oc.env:OPENAI_KEY}
+mode: topdown
+
+# Advanced options
+task_description_candidate_num: -1 # the number of sample task descriptions. -1 means all 
+task_asset_candidate_num: -1 # the number of sample task descriptions. -1 means all 
+task_code_candidate_num: 4 # the number of sample task code. -1 means all 
+
+# Save and Load Memory
+prompt_data_folder: data_articulated_ablation/
+save_memory: True # save the assets, task code, task descriptions generated offline
+load_memory: True # load the assets, task code, task descriptions generated offline
+use_template: True # use template when constructing prompts, better for scaling
+reflection_agreement_num: 2 # how many models that need to agree to add a new task in reflection
+visual_reflection: False # add in visual reflections on the generated task output
+language_reflection: False # add in language reflections on the generated task
+reject_sampling: True # add in human reflections on the generated task
+
+
+target_task_name: "" # specific desired task name
+target_object_name: "" # specific desired object name
+save_code_early: False # ignore test and save the code after implementation
+load_task_num: -1 # how many origin_tasks to load from offline
+save_data: True
+
+# Prompting Options
+asset_generation: False # whether to generate assets
+visual_solver_generation: True # whether to use vision api to generate solver config
+solver_generation_stage: 3 # whether to use separate solver generation
+use_primitive: True # whether to try some primitive solver configs
+
+# Pipeline and Subpipeline Options
+create_task: True # whether to create a new task
+create_solver: True # whether to create a new solver
+simulation_task: False # whether to use simulation task
+rl_solver: False # whether to use rl solver over kpam
+
+save_pipeline: False # whether to save the agent
+load_pipeline: False # whether to load the agent
+load_pipeline_path: "" # the path to load the agent

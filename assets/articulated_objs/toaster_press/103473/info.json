@@ -1,0 +1,13 @@
+{
+    "keypoints": {
+        "articulated_object_head": [
+            -0.006020979955792427,
+            0.23966898024082184,
+            0.8831456899642944
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the center of the button on the toaster"
+    },
+    "scale": 0.2
+}

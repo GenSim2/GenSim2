@@ -1,0 +1,95 @@
+The previous solutions are not feasible. Please regenerate SOLVER_TRIALS new solution configs that are different from the previous ones. 
+Remember that you only need to regenerate the pre-actuation motions in the solution config, and not the task or task code.
+
+The reasons for the previous failure(s) are: 
+
+REGENERATE_REASON_TEMPLATE
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the pre/post-actuation part of some task solution configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+# Pre-actuation and post-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", 0.06], ["translate_z", -0.08]] # [adjust gripper direction and approach, move gripper above lid]
+
+# post-actuation pose list
+post_actuation_motions: [["rotate", 0.75]] # [press lid down]
+
+# trajectory time
+actuation_time: 24 # time to reach task goal pose
+pre_actuation_times: [16, 20]
+post_actuation_times: [32]
+
+"""
+
+"""
+task_name: OpenLaptop
+category_name: Articulated
+
+# Pre-actuation and post-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", -0.05], ["translate_z", -0.05]] # [adjust gripper direction and approach, move gripper below lid]
+
+# post-actuation pose list. pushing down
+post_actuation_motions: [["rotate", -0.75]] # [lift lid up]
+
+# trajectory time
+actuation_time: 28 # time to reach task goal pose
+pre_actuation_times: [20, 24]
+post_actuation_times: [40]
+
+"""
+
+"""
+task_name: TurnOnFaucet
+category_name: Articulated
+
+# Pre-actuation and post-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_z", -0.05]] # [move above handle]
+
+# post-actuation pose list. pushing down
+post_actuation_motions: [["translate_z", 0.03], ["translate_y", -0.1], ["translate_x", 0.05]] # [turn the handle by 90 degree from left to right, turn the handle by 180 degree from left to right]
+
+# trajectory time
+actuation_time: 12  # time to reach task goal pose
+pre_actuation_times: [8]
+post_actuation_times: [16, 18, 24]
+
+"""
+
+=========
+Please output the SOLVER_TRIALS different configs in order. The pre actuation motions of different configs can be diverse, but their task names should be the same.
+Do not output configs that are the same as the previous ones.
+Do not use terms that you have not seen before. 
+Each config should be in the YAML format as the examples above.
+The diversity of the pre-actuation motions can be achieved by using different axes for translation.
+Notice that the pre-actuation motions are relative to the actuation pose and the translation motions are represented in corrdinates relative to the manipulator base. 
+Please think step by step, try your best to understand the job, and show your reasoning process.

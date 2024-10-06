@@ -1,0 +1,309 @@
+Task Name: Fetch item from refrigerator
+Description: The robotic arm will open a refrigerator door reach inside to grab an item, place it on the table, and then close the door
+
+This task can be decomposed as follows:
+
+substep 1: grasp the refrigerator door
+```primitive
+    rgbs, final_state = grasp_object_link(self, "Refrigerator", "link_1")  
+    success = check_grasped(self, "Refrigerator", "link_1")
+```
+
+substep 2: open the refrigerator door
+```reward
+def _compute_reward(self):
+    # this reward encourages the end-effector to stay near door to grasp it.
+    eef_pos = get_eef_pos(self)[0]
+    door_pos = get_link_state(self, "Refrigerator", "link_1")
+    reward_near = -np.linalg.norm(eef_pos - door_pos)
+
+    # Get the joint state of the door. We know from the semantics and the articulation tree that joint_1 connects link_1 and is the joint that controls the rotation of the door.
+    joint_angle = get_joint_state(self, "Refrigerator", "joint_1") 
+    # The reward is the negative distance between the current joint angle and the joint angle when the door is fully open (upper limit).
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "Refrigerator", "joint_1")
+    diff = np.abs(joint_angle - joint_limit_high)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+    success = diff < 0.35 * (joint_limit_high - joint_limit_low) # for opening, we think 65 percent is enough
+
+    return reward, success
+```
+
+```action space
+delta-translation
+```
+In the last substep the robot already grasps the door, thus only local movements are needed to open it. 
+
+substep 3: grasp the item
+```primitive
+    rgbs, final_state = grasp_object(self, "Item")
+    success = check_grasped(self, "Item")
+```
+
+substep 4: move the item out of the refrigerator
+```reward
+def _compute_reward(self):
+    # Get the current item position
+    item_pos = get_position(self, "Item")
+
+    # The first reward encourages the end-effector to stay near the item
+    eef_pos = get_eef_pos(self)[0]
+    reward_near = -np.linalg.norm(eef_pos - item_pos)
+
+    # The reward is to encourage the robot to grasp the item and move the item to be on the table. 
+    # The goal is not to just move the soda can to be at a random location out of the refrigerator. Instead, we need to place it somewhere on the table. 
+    # This is important for moving an object out of a container style of task.
+    table_bbox_low, table_bbox_high = get_bounding_box(self, "init_table") # the table is referred to as "init_table" in the simulator. 
+    table_bbox_range = table_bbox_high - table_bbox_low
+
+    # target location is to put the item at a random location on the table
+    target_location = np.zeros(3)
+    target_location[0] = table_bbox_low[0] + 0.2 * table_bbox_range[0] # 0.2 is a random chosen number, any number in [0, 1] should work
+    target_location[1] = table_bbox_low[1] + 0.3 * table_bbox_range[1] # 0.3 is a random chosen number, any number in [0, 1] should work
+    target_location[2] = table_bbox_high[2] + 0.05 # target height is slightly above the table
+    diff = np.linalg.norm(item_pos - target_location)
+    reward_distance = -diff
+
+    reward = reward_near + 5 * reward_distance
+
+    success = diff < 0.06
+    
+    return reward, success
+```
+
+```action space
+normalized-direct-translation
+```
+Since this substep requires moving the item to a target location, we use the normalized-direct-translation.
+
+substep 5: grasp the refrigerator door again
+```primitive
+    rgbs, final_state = grasp_object_link(self, "Refrigerator", "link_1")
+    success = check_grasped(self, "Refrigerator", "link_1") 
+```
+
+substep 6: close the refrigerator door
+```reward
+def _compute_reward(self):
+    # this reward encourages the end-effector to stay near door
+    eef_pos = get_eef_pos(self)[0]
+    door_pos = get_link_state(self, "Refrigerator", "link_1")
+    reward_near = -np.linalg.norm(eef_pos - door_pos)
+
+    # Get the joint state of the door. 
+    joint_angle = get_joint_state(self, "Refrigerator", "joint_1") 
+    # The reward encourages the robot to make joint angle of the door to be the lower limit to clost it.
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "Refrigerator", "joint_1")
+    diff = np.abs(joint_limit_low - joint_angle)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+
+    success = diff < 0.1 * (joint_limit_high - joint_limit_low) # for closing, we think 10 percent is enough     
+
+    return reward, success
+```
+
+
+Task Name: Fetch item from refrigerator
+Description: The robotic arm will open a refrigerator door reach inside to grab an item, place it on the table, and then close the door
+
+substep 1: grasp the refrigerator door
+```primitive
+    rgbs, final_state = grasp_object_link(self, "Refrigerator", "link_1")  
+    success = check_grasped(self, "Refrigerator", "link_1")
+```
+
+substep 2: open the refrigerator door
+```reward
+def _compute_reward(self):
+    # this reward encourages the end-effector to stay near door to grasp it.
+    eef_pos = get_eef_pos(self)[0]
+    door_pos = get_link_state(self, "Refrigerator", "link_1")
+    reward_near = -np.linalg.norm(eef_pos - door_pos)
+
+    # Get the joint state of the door. We know from the semantics and the articulation tree that joint_1 connects link_1 and is the joint that controls the rotation of the door.
+    joint_angle = get_joint_state(self, "Refrigerator", "joint_1") 
+    # The reward is the negative distance between the current joint angle and the joint angle when the door is fully open (upper limit).
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "Refrigerator", "joint_1")
+    diff = np.abs(joint_angle - joint_limit_high)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+    success = diff < 0.35 * (joint_limit_high - joint_limit_low) # for opening, we think 65 percent is enough
+
+    return reward, success
+```
+
+```action space
+delta-translation
+```
+In the last substep the robot already grasps the door, thus only local movements are needed to open it. 
+
+substep 3: grasp the item
+```primitive
+    rgbs, final_state = grasp_object(self, "Item")
+    success = check_grasped(self, "Item")
+```
+
+substep 4: move the item out of the refrigerator
+```reward
+def _compute_reward(self):
+    # Get the current item position
+    item_pos = get_position(self, "Item")
+
+    # The first reward encourages the end-effector to stay near the item
+    eef_pos = get_eef_pos(self)[0]
+    reward_near = -np.linalg.norm(eef_pos - item_pos)
+
+    # The reward is to encourage the robot to grasp the item and move the item to be on the table. 
+    # The goal is not to just move the soda can to be at a random location out of the refrigerator. Instead, we need to place it somewhere on the table. 
+    # This is important for moving an object out of a container style of task.
+    table_bbox_low, table_bbox_high = get_bounding_box(self, "init_table") # the table is referred to as "init_table" in the simulator. 
+    table_bbox_range = table_bbox_high - table_bbox_low
+
+    # target location is to put the item at a random location on the table
+    target_location = np.zeros(3)
+    target_location[0] = table_bbox_low[0] + 0.2 * table_bbox_range[0] # 0.2 is a random chosen number, any number in [0, 1] should work
+    target_location[1] = table_bbox_low[1] + 0.3 * table_bbox_range[1] # 0.3 is a random chosen number, any number in [0, 1] should work
+    target_location[2] = table_bbox_high[2] + 0.05 # target height is slightly above the table
+    diff = np.linalg.norm(item_pos - target_location)
+    reward_distance = -diff
+
+    reward = reward_near + 5 * reward_distance
+
+    success = diff < 0.06
+    
+    return reward, success
+```
+
+```action space
+normalized-direct-translation
+```
+Since this substep requires moving the item to a target location, we use the normalized-direct-translation.
+
+substep 5: grasp the refrigerator door again
+```primitive
+    rgbs, final_state = grasp_object_link(self, "Refrigerator", "link_1")
+    success = check_grasped(self, "Refrigerator", "link_1") 
+```
+
+substep 6: close the refrigerator door
+```reward
+def _compute_reward(self):
+    # this reward encourages the end-effector to stay near door
+    eef_pos = get_eef_pos(self)[0]
+    door_pos = get_link_state(self, "Refrigerator", "link_1")
+    reward_near = -np.linalg.norm(eef_pos - door_pos)
+
+    # Get the joint state of the door. 
+    joint_angle = get_joint_state(self, "Refrigerator", "joint_1") 
+    # The reward encourages the robot to make joint angle of the door to be the lower limit to clost it.
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "Refrigerator", "joint_1")
+    diff = np.abs(joint_limit_low - joint_angle)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+
+    success = diff < 0.1 * (joint_limit_high - joint_limit_low) # for closing, we think 10 percent is enough     
+
+    return reward, success
+```
+
+Task Name:  Put a toy car inside a box
+Description: The robotic arm will open a box, grasp the toy car and put it inside the box.
+
+This task can be decomposed as follows:
+
+substep 1: grasp the first lid of the box
+```primitive
+	# The semantics shows that link_0 and link_1 are the lid links. 
+	rgbs, final_state = grasp_object_link(self, "box", "link_0")  
+    success = check_grasped(self, "box", "link_0")
+```
+
+substep 2: open the first lid of the box
+```reward
+def _compute_reward(self):
+    # This reward encourages the end-effector to stay near the lid to grasp it.
+    eef_pos = get_eef_pos(self)[0]
+    lid_pos = get_link_state(self, "box", "link_0")
+    reward_near = -np.linalg.norm(eef_pos - lid_pos)
+
+    # Get the joint state of the first lid. The semantics and the articulation tree show that joint_0 connects link_0 and is the joint that controls the rotation of the first lid link_0.
+    joint_angle = get_joint_state(self, "box", "joint_0") 
+    # The reward is the negative distance between the current joint angle and the joint angle when the lid is fully open (upper limit).
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "box", "joint_0")
+    diff = np.abs(joint_angle - joint_limit_high)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+    success = diff < 0.35 * (joint_limit_high - joint_limit_low)
+
+    return reward, success
+```
+
+```action space
+delta-translation
+```
+
+substep 3: grasp the second lid of the box
+```primitive
+	# We know from the semantics that link_0 and link_1 are the lid links. 
+	rgbs, final_state = grasp_object_link(self, "box", "link_1")  
+    success = check_grasped(self, "box", "link_1")
+```
+
+substep 4: open the second lid of the box
+```reward
+def _compute_reward(self):
+    # This reward encourages the end-effector to stay near the lid to grasp it.
+    eef_pos = get_eef_pos(self)[0]
+    lid_pos = get_link_state(self, "box", "link_1")
+    reward_near = -np.linalg.norm(eef_pos - lid_pos)
+
+    # Get the joint state of the second lid. 
+    joint_angle = get_joint_state(self, "box", "joint_1") 
+    # The reward is the negative distance between the current joint angle and the joint angle when the lid is fully open (upper limit).
+    joint_limit_low, joint_limit_high = get_joint_limit(self, "box", "joint_1")
+    diff = np.abs(joint_angle - joint_limit_high)
+    reward_joint =  -diff
+
+    reward = reward_near + 5 * reward_joint
+    success = diff < 0.35 * (joint_limit_high - joint_limit_low)
+    return reward, success
+```
+
+```action space
+delta-translation
+```
+
+substep 5: grasp the toy car
+```primitive
+	rgbs, final_state = grasp_object(self, "toy_car")
+    success = check_grasped(self, "toy_car")
+```
+
+substep 6: put the toy car into the box
+```reward
+def _compute_reward(self):
+    # This reward encourages the end-effector to stay near the car to grasp it.
+    car_position = get_position(self, "toy_car")
+    eef_pos = get_eef_pos(self)[0]
+    reward_near = -np.linalg.norm(eef_pos - car_position)
+
+    # main reward is 1 if the car is inside the box. From the semantics we know that link2 is the box body
+    box_bbox_low, box_bbox_high = get_bounding_box_link(self, "box", "link_2")
+    reward_in = int(in_bbox(self, car_position, box_bbox_low, box_bbox_high))
+    
+    # another reward is to encourage the robot to move the car to be near the box
+    reward_reaching = - np.linalg.norm(car_position - (box_bbox_low + box_bbox_high) / 2)
+
+    # The task is considered to be successful if the car is inside the box bounding box
+    success = reward_in
+
+    # We give more weight to reward_in, which is the major goal of the task.
+    reward = 5 * reward_in + reward_reaching + reward_near
+    return reward, success
+```

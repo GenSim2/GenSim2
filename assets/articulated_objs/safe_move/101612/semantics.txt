@@ -1,0 +1,4 @@
+link_0 hinge door
+link_1 hinge knob
+link_2 hinge handle
+link_3 heavy safe_body

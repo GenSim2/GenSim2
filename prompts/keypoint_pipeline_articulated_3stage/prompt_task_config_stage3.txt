@@ -1,0 +1,53 @@
+You are an expert in solving robotic tasks by coding task solution configs. Now please solve the newly generated task by generating the task solution config. 
+The task solution config contains necessary positions, parameters and keypoints for an existing trajectory optimization algorithm to solve a feasible solution. It mainly contains two parts, constraints and pre/post-actuation motions:
+(1) The constraints are used to ensure the gripper to be in contact with the object and to implicitly define a certain actuation pose.
+(2) The pre-actuation motions are used to move the gripper to the actuation pose, while the post-actuation motions are used to complete the task after the actuation pose.
+
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the Post-actuation part of some task solution configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+# Post-actuation motions for the manipulator. 
+# Post-actuation motions should be in the format of a python list. Each element in the list should be a string with lower-case and separated by hyphens.
+
+# post-actuation pose list
+post_actuation_motions: ["move-backward"] # [pull lid down]
+
+"""
+
+"""
+task_name: OpenLaptop
+category_name: Articulated
+
+# Post-actuation motions for the manipulator. 
+# Post-actuation motions should be in the format of a python list. Each element in the list should be a string with lower-case and separated by hyphens.
+
+# post-actuation pose list. pushing down
+post_actuation_motions: ["move-forward"] # [push lid up]
+
+"""
+
+=====================================
+Some rules of such motion planning are listed here:
+1. Each step in your plan should be chosen from the following motion set: "move-forward", "move-backward", "move-left", "move-right", "move-up", "move-down". Notice that you can not use the gripper finger to grip anything.
+2. The directions in the movement are defined in the robot's coordinate system. The second uploaded image shows the robot's coordinate system.
+    - The left direction is defined as the direction aligned with the green axis in the image, while the right direction is defined as the opposite direction.
+    - The forward direction is defined as the direction aligned with the red axis in the image, while the backward direction is defined as the opposite direction.
+    - The down direction is defined as the direction aligned with the blue axis in the image, while the up direction is defined as the opposite direction.
+3. The robot arm should not collide with the table in the scene during the execution of your plan.
+4. A plan should include at most 3 steps
+5. The post-actuation motion plans of different solutions can be diverse, but their task names should be the same. Do not use terms that you have not seen before. 
+6. The output should be in the YAML format.
+
+==============================
+Please output the SOLVER_TRIALS different configs for task "TASK_NAME_TEMPLATE" in order. Each config should be in the same YAML format as the examples.
+Please think step by step, try your best to understand the job, and show your reasoning process.

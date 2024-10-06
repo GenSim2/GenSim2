@@ -1,0 +1,12 @@
+# SSTK version 0.8.0
+# 151
+mtllib original-151.mtl
+o mesh356/mesh356-geometry#mesh356-geometry
+v 0.474767 -0.115443 0.332318
+v 0.457509 -0.115443 0.318316
+v 0.440250 -0.115443 0.332318
+vn 0 1 0
+vn 0 -1 0
+usemtl material_0_0
+f 1//1 2//1 3//1
+f 3//2 2//2 1//2

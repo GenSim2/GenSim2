@@ -1,0 +1,16 @@
+{
+    "scale": 1.0,
+
+    "keypoints": {
+        "tool_head": [0.0, 0.0, 0.165],
+        "tool_tail": [0.0, 0.0, 0.075],
+        "tool_side": [0.0, 0.045, 0.165]
+    },
+    
+    "keypoint_descriptions": 
+    {
+        "tool_head": "the middle point between the two finger tips",
+        "tool_tail": "the middle point between the two finger bases",
+        "tool_side": "the tip of the right finger"
+    }
+}

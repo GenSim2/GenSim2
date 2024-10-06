@@ -1,0 +1,18 @@
+{
+    "scale": 0.18,
+    "keypoints": {
+        "articulated_object_head": [
+            -0.006014005281031132,
+            -0.2061910331249237,
+            0.6429627537727356
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle of the bucket handle"
+    },
+    "axis": "x",
+    "joint_position_range": [
+        0.64,
+        3.78
+    ]
+}

@@ -1,0 +1,42 @@
+category_name: Articulated
+constraint_list:
+- keypoint_name: tool_head
+  target_keypoint_name: articulated_object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis:
+  - 1.0
+  - 0
+  - 0
+  target_axis_frame: object
+  target_inner_product: 1
+  tolerance: 0.01
+  type: frame_axis_parallel
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis:
+  - 0
+  - 0
+  - 1.0
+  target_axis_frame: object
+  target_inner_product: 0
+  tolerance: 0.01
+  type: frame_axis_orthogonal
+object_keypoint_name_list:
+- articulated_object_head
+post_actuation_motions:
+- move-forward
+- move-left
+- move-forward
+pre_actuation_motions:
+- - translate_x
+  - -0.05
+- - translate_z
+  - -0.15
+task_name: PushBox
+tool_keypoint_name_list:
+- tool_head
+- tool_tail
+- tool_side

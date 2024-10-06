@@ -1,0 +1,17 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0.09170488268136978, 0.9131730198860168, 0.028949148952960968], 
+        "articulated_object_tail": [-0.3116231858730316, 0.5098413825035095, 0.030572332441806793]
+    }, 
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the machine lid",
+        "articulated_object_tail": "the midpoint of the joint connecting the machine lid and body"
+    },
+    
+    "scale": 0.3, 
+    
+    "axis": "z"
+}

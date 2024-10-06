@@ -1,0 +1,78 @@
+You are an expert in creating robotic simulation environments and tasks. You are given some articulated assets for example. Please come up with creative use of the gripper to manipulate a single articulated object. Note that the simulation engine does not support deformable objects or accurate collision models for contacts. Moreover, the robot can only execute a simple trajectory of one motion.
+
+=========
+Here are all the assets. Please try to come up with tasks using only these assets.
+"""
+TASK_ASSET_PROMPT
+"""
+
+
+=========
+Here are some examples of good tasks. Try to be creative and high standard, and avoid overlapping with these tasks.
+
+TASK_DESCRIPTION_PROMPT
+
+
+=========
+Here are some bad example task instances with reasons. Try to avoid generating such tasks.
+{
+  "task-name": "insert-inside-box",
+  "task-description": "Insert the gripper inside the box.",
+  "assets-used": ["box_rotate"],
+  "success-criteria": ["distance_articulated_rigidbody"]
+}
+reasons: it's hard to define and identify the behavior of "inserting", which is unclear, locating is better.
+
+{
+  "task-name": "toggle-drawer-openness",
+  "task-description": "Toggle the drawer's state from open to closed, or closed to open, depending on its initial state.",
+  "assets-used": ["drawer_rotate"],
+  "success-criteria": ["articulated_closed"]
+}
+reasons: the generated task objective ("from open to closed or closed to open") is not clear, we need a deterministic task, e.g., we can set the specific objective as "from open to closed".
+
+{
+  "task-name": "place-laptop-in-box",
+  "task-description": "Place the laptop in the box.",
+  "assets-used": ["laptop_move", "box_rotate"],
+  "success-criteria": ["distance_articulated_articulated"]
+}
+reasons: only one articulated object can be loaded, we cannot use laptop and box at the same time.
+
+{
+  "task-name": "open-laptop-and-type",
+  "task-description": "Open the laptop and type some characters.",
+  "assets-used": ["laptop_rotate"],
+  "success-criteria": ["articulated_open"]
+}
+reasons: the robot can only execute a simple trajectory of one motion, there are two motions (opening and typing) in the task.
+
+{
+  "task-name": "close-drawer-lock",
+  "task-description": "Push the drawer to a closed position and rotate the handle to a locked orientation",
+  "assets-used": ["drawer"],
+  "success-criteria": ["articulated_closed"]
+}
+reasons: the robot can only execute a simple trajectory of one motion, there are two motions (pushing and rotating) in the task. Moreover, the drawer has only prismatic joint which cannot be rotated.
+
+=========
+
+Please describe a new task PLACEHOLDER in natural languages and explain its novelty and challenges.
+Note:
+- Do not use assets that are not in the list above.
+- Do not repeat the tasks similar to the good examples or the already generated tasks.
+- The task needs to obey physics and remain feasible.
+- Do not create similar tasks with the same "assets-used" set.
+- All the assets are on the table when initialized.
+- Do not place objects on small objects.
+- Only one articulated object can be loaded.
+- The task contains a simple trajectory of one motion.
+- The task should have a clear goal, e.g. use "open/close" instead of "adjust position".
+
+Before the next step, please check if the generated task is a bad task shown in the above examples and meet all the criteria as stated above. Specifically, if the task **only** contains a simple trajectory of one motion, and should have a **clear** goal. Explain in detail, and get a conclusion. If the task is a bad task, regenerate a new one.
+
+Then, format the answer in a Python dictionary with keys "task-name" and value type string, "task-description" (one short phrase), and value type string with lower-case and separated by hyphens, "assets-used" and value type list of strings, and "success-criteria" (choose from "articulated_open", "articulated_closed", "distance_articulated_rigidbody", "distance_gripper_rigidbody", and "distance_gripper_articulated") and value type list of strings. Try to be as creative as possible.
+
+Please remember not to add any extra comments to the Python dictionary. 
+
+Let's think step by step.

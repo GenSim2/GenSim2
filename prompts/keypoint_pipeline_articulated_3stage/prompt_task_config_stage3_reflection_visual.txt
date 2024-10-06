@@ -1,0 +1,23 @@
+The uploaded image sequence visualizes the post actuation motion defined by the your answer. It represents some waypoints beginning from the actuation pose of the arm to complete the task. Do you think your generated post actuation motions for the task solver config can solve the task you have generated, in the context of your current task "TASK_STRING_TEMPLATE"?  Be as rigorous and high-standard as possible.
+
+Reminder:
+your task name:
+TASK_STRING_TEMPLATE
+
+task description:
+TASK_DESCRIPTION_TEMPLATE
+
+
+=========
+Reply explain your reason and then say whether the task solver passes the test (True or False), formatted in a python dictionary, do not miss commas or add extra spaces. Here are some examples.
+
+{
+	"task_name": "sort-color-blocks",
+	"task_descriptions": "Pick up differently colored blocks and place them into separate bowls of matching color."
+	"reason": ""
+	"pass": "",
+}
+
+=========
+
+Please incorporate these feedbacks when you design new task solvers.

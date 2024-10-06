@@ -1,0 +1,4 @@
+link_0 hinge board
+link_1 hinge board
+link_2 slider drawer
+link_3 heavy furniture_body

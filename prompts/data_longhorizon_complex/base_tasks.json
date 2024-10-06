@@ -1,0 +1,23 @@
+{
+    "move_mug_into_drawer": {
+        "assets-used": [
+            ["drawer"], ["mug"]
+        ],
+        "task-description": "Open the drawer, pick up the mug, and place it inside the drawer.",
+        "task-name": "move-mug-into-drawer"
+    },
+    "tidy_up_table": {
+        "assets-used": [
+            ["drawer", "box_rotate"], ["golf_ball", "cracker_box"]
+        ],
+        "task-description": "Place the golf ball into the drawer and place the cracker box on top of the box.",
+        "task-name": "tidy-up-table"
+    },
+    "prepare_breakfast": {
+        "assets-used": [
+            ["microwave", "toaster_press"], ["bowl", "steak"]
+        ],
+        "task-description": "Prepare a breakfast scene with a bowl in the microwave and a steak inside the bowl, and the toaster lever pressed.",
+        "task-name": "prepare-breakfast"
+    }
+}

@@ -1,0 +1,7 @@
+has_handle: true
+pos:
+  x: -0.02513
+  y: 0.75174
+  z: 0.01812
+gripper:
+  ori: z

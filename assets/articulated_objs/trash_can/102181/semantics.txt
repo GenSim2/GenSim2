@@ -1,0 +1,3 @@
+link_0 hinge foot_pad
+link_1 hinge lid
+link_2 free trashcan_body

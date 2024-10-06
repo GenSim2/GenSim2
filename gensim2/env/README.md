@@ -1,0 +1,17 @@
+## Task List
+- Kpam
+  - OpenBox
+  - CloseBox
+  - OpenLaptop
+  - CloseLaptop
+  - TurnOnFaucet
+  - TurnOffFaucet
+  - AdjustDrawerPositionV2
+  - PushDrawerClose
+  - ToggleDrawerV2
+  - SwingBucketHandle
+- RL(?)
+  - FlipLaptop
+  - UnlockOvenDoor
+  - LiftBucketHandle
+  - OvenDoorSafetyCheck

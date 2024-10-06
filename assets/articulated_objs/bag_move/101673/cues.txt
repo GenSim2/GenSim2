@@ -1,0 +1,2 @@
+link_0 hinge handle handle
+link_1 free base_body base_body

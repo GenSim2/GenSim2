@@ -1,0 +1,5 @@
+link_0 hinge lever
+link_1 slider lid
+link_2 slider lid
+link_3 hinge rotation_slider
+link_4 free coffee_machine_body

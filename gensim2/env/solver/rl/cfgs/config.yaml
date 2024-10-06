@@ -1,0 +1,60 @@
+defaults:
+  - _self_
+  - agent: drqv2
+  - override hydra/launcher: submitit_local
+
+# Root Dir
+root_dir: '/home/gensim_v2'
+wandb: True
+
+# Task
+env: 'HammerHit'
+sim: "Sapien"
+# task settings
+frame_stack: 3
+action_repeat: 1 # Not used yet for gensim2
+discount: 0.99
+hidden_dim: 1024
+# train settings
+num_train_frames: 1806000
+num_seed_frames: 12000
+# eval
+eval_every_frames: 20000
+num_eval_episodes: 10
+# snapshot
+save_snapshot: true
+max_episode_steps: 500
+
+# replay buffer
+replay_buffer_size: 1000000 # 150000
+replay_buffer_num_workers: 2
+nstep: 3
+batch_size: 256 # 128
+
+# misc
+seed: 1
+device: cuda
+save_video: true
+save_train_video: false
+use_tb: true
+algo_name: 'drqv2'
+record_video: true
+wb_tag: 'gensim2'
+
+# experiment
+obs_mode: 'state' # [state, image, none]
+experiment: ${algo_name}_rewscale_${reward_scale}_numtraj_${env}_${obs_mode}_${sim}_seed_${seed}
+
+# Reward scale
+reward_scale: 1.0
+
+hydra:
+  run:
+    dir: ./exp_local/${env}_${sim}/${algo_name}/${experiment} # ${now:%H%M%S}_${experiment}
+  sweep:
+    dir: ./exp_local/${env}_${sim}/${algo_name}/${now:%H%M%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    tasks_per_node: 1
+    nodes: 1
+    submitit_folder: ./exp/${env}_${sim}/${algo_name}/${now:%H%M%S}_${experiment}/.slurm

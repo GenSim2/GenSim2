@@ -1,0 +1,4 @@
+link_0 hinge knob
+link_1 slider slider
+link_2 slider slider
+link_3 free toaster_body

@@ -1,0 +1,4 @@
+link_0 hinge wheel
+link_1 hinge wheel
+link_2 hinge lid
+link_3 free trashcan_body

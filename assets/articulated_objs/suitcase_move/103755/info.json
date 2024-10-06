@@ -1,0 +1,15 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.65, -0.20]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the suitcase body"
+    },
+
+    "scale": 0.2,
+
+    "joint_position_range": [0, 0.12]
+}

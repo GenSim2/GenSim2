@@ -1,0 +1,2 @@
+link_0 hinge rotation_window
+link_1 static window_frame

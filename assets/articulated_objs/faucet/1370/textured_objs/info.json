@@ -1,0 +1,19 @@
+{
+    "scale": 0.2,
+
+    "keypoints": 
+    {
+        "articulated_object_head": [0.01, 0.38, 0.02],
+        "articulated_object_tail": [0.01, 0.275, -0.215],
+        "articulated_object_bottom_base": [-0.9, 0, -0.1]
+    },
+
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the tip of the faucet handle",
+        "articulated_object_tail": "the intersection point between the faucet handle and the faucet joint",
+        "articulated_object_bottom_base": "the point under the faucet"
+    },
+
+    "axis": "y"
+}

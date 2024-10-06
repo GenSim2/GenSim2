@@ -1,0 +1,15 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.48, 0]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the middle point of the edge of the bag"
+    },
+    
+    "scale": 0.2,
+
+    "joint_position_range": [0, 0.12]
+}

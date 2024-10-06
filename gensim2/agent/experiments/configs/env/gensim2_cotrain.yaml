@@ -1,0 +1,180 @@
+# @package _global_
+domains: fr3-11task-100eps-10240pcd, real_data_11task_10eps_quat_10240 # list of dataset name to be loaded for cotrain "," for seperate different datasets
+batch_size: 32 # batch size - reduce to 32 for larger pcd ... need better gpu
+save_interval: 25
+
+# dataset config
+dataset:
+  _target_: gensim2.agent.dataset.multi_sim_traj_dataset.MultiTrajDataset
+  horizon: -1 # horizon for each dataset sample. should be action_horizon+observation_horizon-1 and will be replaced
+  val_ratio: 0. # the train-validation ratio
+  pad_after: ${dataset.action_horizon} # padding after the episode
+  # episode_cnt: 100 # total episodes
+  step_cnt: 30000 # total data transitions
+  data_augmentation: [True, False] # data augmentation, can be a list to specify different augmentation for different datasets, I will recommand aug for sim dataset (add noise) and no aug for real dataset
+  se3_augmentation: False # se3 augmentation, can be a list to specify different augmentation for different datasets
+  use_disk: True # use disk ins1tead of memory to store the data
+  pad_before: ${dataset.observation_horizon} # padding before the episode
+  data_ratio: 1 # only use a fraction of data
+  action_horizon: 4 # observation: (observation + action) is action horizon 
+  observation_horizon: 3 # before observation horizon is observation
+  dataset_postfix: "" # "_traj${dataset.episode_cnt}" # postfix for the dataset
+  precompute_feat: True # precompute features using pretrained models for stems
+  image_encoder: 'resnet' # which encoder to use as the pretrained model  
+  dataset_encoder_postfix: "" # "_${dataset.image_encoder}" # another postfix
+  use_multiview: False # use multiple camera views
+  normalize_state: False # whether to normalize the states in datasets
+  from_empty: False
+  use_pcd: False # To be replaced
+  pcdnet_pretrain_domain : "" # To be replaced
+  pcd_channels: 4 # 3 is pos, 4 is [pos, height], 5 is [pos, height, seg], 6 is [pos, color], 7 is [pos, color, height]
+  env_names: ${rollout_runner.env_names}
+
+# test
+rollout_runner:
+  _target_: gensim2.agent.utils.rollout_runner.RolloutRunner
+  episode_num: 10
+  env_names: [
+    "PhoneOnBase"
+    # "OpenBox",
+    # "CloseBox",
+    # "OpenLaptop",
+    # "CloseLaptop",
+    # "TurnOnFaucet",
+    # "TurnOffFaucet",
+    # "OpenDrawer",
+    # "PushDrawerClose",
+    # "SwingBucketHandle",
+    # "PressToasterLever",
+    # "MoveBagForward",
+    # "LiftBag",
+    # "LiftBucketUpright",
+    # "PushToasterForward",
+    # "CloseSuitcaseLid",
+    # "SwingSuitcaseLidOpen",
+    # "RelocateSuitcase",
+    # "SwingDoorOpen",
+    # "ToggleDoorClose",
+    # "RotateMicrowaveDoor",
+    # "CloseRefrigeratorDoor",
+    # "CloseSafe",
+    # "OpenRefrigeratorDoor",
+    # "OpenSafe",
+  ]
+
+  save_video: True
+  obs_mode: "pointcloud"
+  pcdnet_pretrain_domain : "" # To be replaced
+  pcd_channels: ${dataset.pcd_channels}
+  render: False
+
+# train:
+#   total_epochs: 5000  # maximum training epochs before termination
+#   total_iters: 80000 # maximum training steps before termination
+#   epoch_iters: 1000  # training steps in each epoch
+#   validation_iters: 100 # maximum iterations for validation
+
+network:
+  # trunk transformer config
+  _target_: gensim2.agent.models.policy.Policy
+  embed_dim: 512
+  num_blocks: 4 # num of blocks in the trunk transformer 
+  num_heads: 8 # num of heads in the trunk transformer
+  drop_path: 0.0 # drop path in the trunk transformer
+  use_modality_embedding: True
+  token_postprocessing: ${head.token_postprocessing}
+  cross_stem_attention: False # use cross attention to combine state and action
+  weight_init_style: 'pytorch' # weight init
+  observation_horizon: ${dataset.observation_horizon}
+  action_horizon: ${dataset.action_horizon}
+  openloop_steps: 4
+  action_dim : -1 # overwrite based on dataset
+  temporal_agg: False # ACT-style temporal aggregation, not always work
+
+# head network (MLP, Diffusion, TransformerDecoder)
+# head:
+#     _target_: gensim2.agent.models.policy_head.MLP
+#     input_dim: ${network.embed_dim}
+#     tanh_end: True # normalized action output
+#     output_dim: -1 # overwrite based on dataset
+#     widths: [512, 256]
+#     normalize_action: ${head.tanh_end}
+#     token_postprocessing: "mean"
+
+head:
+    _target_: gensim2.agent.models.policy_head.Diffusion
+    input_dim: ${network.embed_dim} # concat = 11264
+    output_dim: -1 # overwrite based on dataset
+    horizon: ${dataset.action_horizon}
+    normalize_action: True
+    down_dims: [512, 1024, 2048]
+    noise_scheduler_type: "DDIM"
+    num_inference_steps: 10
+    token_postprocessing: "mean" # "concat" # maxpool or meanpool the tokens
+    
+# head:
+#     _target_: gensim2.agent.models.policy_head.TransformerDecoder
+#     token_dim: ${network.embed_dim}
+#     output_dim: -1 # overwrite based on dataset
+#     horizon: ${dataset.action_horizon}
+#     tanh_end: True
+#     normalize_action: ${head.tanh_end}
+#     token_postprocessing: ""
+
+stem:
+  modalities: ['language', 'state', 'pointcloud']
+  modality_embed_dim: 512
+  normalize_state: False # normalize state vectors 
+  # state_embedding_dim: 32 # dimension of positional encoding for state
+  cross_attention: True # whether to use cross attention or not
+  attention_type: 'self' # 'perceiver', 'self'
+
+  # used as perceiver io to unify token sizes for each modality
+  crossattn_latent:
+    pointcloud: 3
+    state: 3
+    language: 4
+
+    # pointcloud:
+    #   _target_: gensim2.agent.models.policy_stem.PerActVoxelEncoder
+    #   pcd_domain: 'scanobjectnn' # just work for dataset preprocessing style
+    #   pcd_channels: ${dataset.pcd_channels}
+    #   batch_size: ${batch_size}
+    #   observation_horizon: ${dataset.observation_horizon}
+
+  pointcloud:
+    _target_: gensim2.agent.models.policy_stem.PointNet
+    pcd_domain: 'scanobjectnn'
+    finetune: True
+    cfg_name: 'pointnext-s' # We need output_dim to be equal to `modality_embed_dim`, it happens to be 512 in this case so we do not need anything else
+    pretrained_path: "pretrained_weights/scanobjectnn-pointnext-s_best.pth" # path/to/pretrained/pointnet.pth
+    # cfg_name: 'pointvector-s' # We need output_dim to be equal to `modality_embed_dim`, it happens to be 512 in this case so we do not need anything else
+    # pretrained_path: "pretrained_weights/scanobjectnn-train-pointvector-s-ngpus1-seed4677-20230327-151936-XVPsr4boZEJ2dG2zfrH94T_ckpt_best.pth"
+
+  # pointcloud:
+  #   _target_: gensim2.agent.models.policy_stem.PointNet
+  #   pcd_domain: 'shapenetpart'
+  #   cfg_name: 'pointnext-s_c64' # We need output_dim to be equal to `modality_embed_dim`, it happens to be 512 in this case so we do not need anything else
+  #   finetune: True
+  #   pretrained_path: "shapenetpart-train-pointnext-s_c64-ngpus4-seed7798-20220822-024210-ZcJ8JwCgc7yysEBWzkyAaE_ckpt_best.pth" # path/to/pretrained/pointnet.pth
+
+  # pointcloud:
+  #   _target_: gensim2.agent.models.policy_stem.DP3PointNetEncoderXYZ # All other paras remains default
+  #   pcd_domain: 'scanobjectnn' # just work for dataset preprocessing style
+  #   in_channels: ${dataset.pcd_channels}
+  #   out_channels: ${stem.modality_embed_dim}
+
+  # implement tokenization for state
+  state:
+    _target_: gensim2.agent.models.policy_stem.MLP
+    input_dim: ${stem.state_embedding_dim} # ovewrite based on the dataset
+    output_dim: 512
+    widths: [256, 512]
+
+  language:
+    _target_: gensim2.agent.models.policy_stem.TextEncoder
+    pretrained_model_name_or_path: "all-MiniLM-L6-v2" # https://www.sbert.net/docs/pretrained_models.html
+    modality_embed_dim: ${stem.modality_embed_dim}
+
+  # image: # camera
+  #   _target_: gensim2.agent.models.policy_stem.VisionTransformer

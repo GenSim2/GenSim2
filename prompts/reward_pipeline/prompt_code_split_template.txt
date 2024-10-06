@@ -1,0 +1,175 @@
+Now I will provide you some reference code and you can write the code for the task "TASK_NAME_TEMPLATE".
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import set_pose
+from gensim2.env.utils.rewards import l2_distance_reward, grasp_reward, progress_reward
+
+class PickYCB(GenSimBaseTask):
+    """Pick up the YCB object."""
+
+    def __init__(self, env):
+        super().__init__(env, rigid_body="ycb_object")
+        self.goal_pos = np.array([0, 0, 0.3])
+
+    def reset(self):
+        super().reset()
+
+        ycb_pos = np.array([0, 0, 0.05])
+        ycb_orn = transforms3d.euler.euler2quat(0, 0, np.pi / 4)
+        ycb_pose = np.concatenate([ycb_pos, ycb_orn])
+
+        set_pose(self.rigid_body, ycb_pose)
+
+    def get_reward(self):
+        reaching_reward_coef = 1
+        grasp_reward_coef = 1
+
+        reaching_reward, reaching_done = l2_distance_reward(pos1=self.tcp.pos, pos2=self.rigid_body.pos)
+
+        grasp_reward, is_grasped = self.grasp_reward(
+            check_grasp_fun=self.env.check_grasp, actor=self.rigid_body.instance, max_angle=30
+        )
+
+        reaching_goal_reward, reaching_goal_done = 0.0, False
+        if is_grasped:
+            reaching_goal_reward, reaching_goal_done = l2_distance_reward(pos1=self.goal_pos, pos2=self.rigid_body.p)
+
+        reward_list = [
+            (reaching_reward_coef * reaching_reward, reaching_done),
+            (grasp_reward_coef * grasp_reward, is_grasped),
+            (reaching_reward_coef * reaching_goal_reward, reaching_goal_done),
+        ]
+
+        reward = progress_reward(reward_list)
+
+        return reward
+"""
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import set_pose
+from gensim2.env.utils.rewards import l2_distance_reward, grasp_reward, progress_reward
+
+class TurnOffFaucetRand(GenSimBaseTask):
+    """
+    Turn off the faucet with randomization.
+
+    Added code for object randomization within the scene. This includes articulated objects.
+
+    """
+
+    def __init__(self, env):
+        super().__init__(env, articulator="faucet")
+
+    def reset(self):
+        super().reset()
+
+        set_random_pose(self.env, self.articulator, self.articulator_name)
+        set_openness(self.articulator, openness=0.9)
+
+    def get_progress_state(self):
+        return check_openness(openness=self.articulator.get_openness()[0], fraction=0, threshold=0.05)
+
+    def get_reward(self):
+        reaching_reward_coef = 1
+        openness_reward_coef = 1
+
+        reaching_reward, reaching_done = l2_distance_reward(pos1=self.tcp.pos, pos2=self.articulator.pos)
+        openness_reward, openness_done = joint_fraction_reward(
+            openness=self.articulator.get_openness()[0], fraction=0.0
+        )
+
+        reward_list = [
+            (reaching_reward_coef * reaching_reward, reaching_done),
+            (openness_reward_coef * openness_reward, openness_done),
+        ]
+
+        reward = progress_reward(reward_list)
+
+        return reward
+"""
+
+"""
+import numpy as np
+import transforms3d
+
+from gensim2.env.base.base_task import GenSimBaseTask
+from gensim2.env.utils.pose import set_pose
+from gensim2.env.utils.rewards import l2_distance_reward, grasp_reward, progress_reward
+
+class PlaceYCBInsideBox(GenSimBaseTask):
+    """Place a YCB object inside the box without letting the box lid close."""
+
+    def __init__(self, env):
+        super().__init__(env, articulator="box", rigid_body="ycb_object")
+
+    def get_progress_state(self):
+        return check_distance(self.articulator_pose[:3] - self.rigid_body.pos)
+
+    def reset(self):
+        super().reset()
+
+        articulator_pos = np.array([0, 0, 0.15])
+        articulator_orn = transforms3d.euler.euler2quat(0, 0, 0)
+        articulator_pose = np.concatenate([articulator_pos, articulator_orn])
+        set_pose(self.articulator, articulator_pose)
+
+        rigid_body_pos = np.array([-0.3, 0.3, 0.1])
+        rigid_body_orn = transforms3d.euler.euler2quat(0, 0, 0)
+        rigid_body_pose = np.concatenate([rigid_body_pos, rigid_body_orn])
+        set_pose(self.rigid_body, rigid_body_pose)
+
+        # set_random_pose(self.env, self.articulator, self.articulator_name)
+        # set_random_pose(self.env, self.rigid_body, self.rigid_body_name)
+        set_openness(self.articulator, openness=0.9)    
+
+    def get_reward(self):
+        reaching_reward_coef = 1
+        grasped_reward_coef = 1
+        reaching_goal_reward_coef = 3
+        task_finished_reward_coef = 10
+
+        reaching_reward, reaching_done = l2_distance_reward(
+            pos1=self.tcp.pos, pos2=self.rigid_body.pos
+        )
+        
+        grasped_reward, is_grasped = grasp_reward(
+            check_grasp_func=self.env.check_grasp, max_angle=30, actor=self.rigid_body.instance
+        )
+
+        reaching_goal_reward, reaching_goal_done = 0, False
+        task_reaching_reward, task_done = 0, False
+
+        # reaching-goal reward
+        if is_grasped:
+            reaching_goal_reward, reaching_goal_done = l2_distance_reward(
+                pos1=self.articulator_pose[:3], pos2=self.rigid_body.pos
+            )
+
+            task_reaching_reward, task_done = task_finished_reward(task_finished=self.get_progress_state())
+
+        reward_list = [
+            (reaching_reward_coef * reaching_reward, reaching_done),
+            (grasped_reward_coef * grasped_reward, is_grasped),
+            (reaching_goal_reward_coef * reaching_goal_reward, reaching_goal_done),
+            (task_finished_reward_coef * task_reaching_reward, task_done),
+        ]
+
+        reward = progress_reward(reward_list)
+
+        return reward
+"""
+
+
+Do not use libraries, extra functions, and assets that you don't know.
+
+Do not generate the `get_reward` function.
+
+Now write the code for the task "TASK_NAME_TEMPLATE" in python code block starting with ```python.  Reminder: TASK_STRING_TEMPLATE

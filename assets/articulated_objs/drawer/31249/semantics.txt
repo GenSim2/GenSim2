@@ -1,0 +1,5 @@
+link_0 slider drawer
+link_1 slider drawer
+link_2 heavy furniture_body
+link_3 hinge door
+link_4 hinge door

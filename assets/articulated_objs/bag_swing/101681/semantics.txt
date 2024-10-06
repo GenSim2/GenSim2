@@ -1,0 +1,3 @@
+link_0 hinge rotation_handle
+link_1 hinge rotation_handle
+link_2 free suitcase_body

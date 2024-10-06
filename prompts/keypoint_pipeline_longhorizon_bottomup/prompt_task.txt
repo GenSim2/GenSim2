@@ -1,0 +1,108 @@
+You are an expert in creating robotic simulation environments and tasks. A robot arm with a 2-finger gripper is used in all the robotic simulation environments and tasks. In each task, there are exactly one articulated object and one rigid body object that you can manipulate.
+
+Please come up with creative use of the gripper to manipulate a single rigid body object and a single articulated object. Note that the simulation engine does not support deformable objects or accurate collision models for contacts. Moreover, the robot can only execute a multi-step trajectory of at most fix motions.
+
+You are given some articulated assets and rigid body objects for the task. You will be given a task library with a set of tasks. Each task only includes one simple motion such as moving the gripper to some object, opening or closing the gripper fingers, or interacting with certain articulated objects by its prismatic/revolute joints. You should use these tasks to create long-horizon tasks with at least 2 sub-tasks. The long-horizon tasks should be challenging and require a sequence of actions to complete. 
+
+There are some general categories of the subtasks in the task library:
+- "reach": move the gripper to a certain object. We have given some primitive reach tasks in the task library. Please first imagine the appreance of the object and then decide one of the primitive reach tasks can be used to reach the object.
+- articulated object interaction: move the gripper to interact with the articulated object. The interaction can be opening or closing the articulated object, or moving the gripper to a certain position to interact with the articulated object.
+
+If the motion of opening or closing the gripper fingers is included in the whole task, it should be listed as a separate sub-task, whose "task-name" should strictly be "grasp" or "ungrasp" respectively (not included in the task library) and should be the only key in the dictionary.
+
+======================
+Here are all the assets. Please try to come up with tasks using only these assets.
+"""
+TASK_ASSET_PROMPT
+"""
+
+======================
+Here are all the sub-tasks you can use to compose a multi-step task
+"""
+TASK_LIB_PROMPT
+"""
+
+
+======================
+Here are some examples of good tasks. Try to be creative and high standard, and avoid overlapping with these tasks.
+"""
+TASK_DESCRIPTION_PROMPT
+"""
+
+============================================
+Here is an example of a long-horizon task "place-baseball-in-box" and its sub-tasks:
+# Long-horizon task
+''' python
+{
+"task-name": "place-baseball-in-box",
+"task-description": "place the baseball into the opened box with gripper",
+"assets-used": ["box_rotate", "baseball"]
+}
+'''
+
+# Sub-task 1
+''' python
+{
+"task-name": "reach-baseball",
+"task-description": "reach the baseball and make the baseball between gripper fingers",
+"assets-used": ["baseball"],
+"success-criteria": ["distance_gripper_rigidbody"]
+}
+'''
+
+# Sub-task 2
+''' python
+{
+"task-name": "grasp"
+}
+'''
+
+# Sub-task 3
+''' python
+{
+"task-name": "move-inside-box",
+"task-description": "move the gripper into the box",
+"assets-used": ["box_rotate"],
+"success-criteria": ["distance_articulated_rigidbody"]
+}
+'''
+
+# Sub-task 4
+''' python
+{
+"task-name": "ungrasp"
+}
+
+# Sub-task 5
+''' python
+{
+"task-name": "close-box",
+"task-description": "Close the box",
+"assets-used": ["box_rotate"],
+"success-criteria": ["articulated_closed"]
+}
+'''
+
+======================
+
+Please describe a new task PLACEHOLDER in natural languages and explain its novelty and challenges.
+Note:
+- Do not use assets that are not in the list above.
+- Do not repeat the tasks similar to the good examples or the already generated tasks.
+- The task needs to obey physics and remain feasible.
+- Do not create similar tasks with the same "assets-used" set.
+- All the assets are on the table when initialized.
+- Do not place objects together, they should be apart from each other in the beginning.
+- Only one articulated object and one rigid body object can be loaded.
+- The task contains a multi-step trajectory of at most four motions.
+- The task should have a clear goal.
+- Do not use the tasks that are not in the task library.
+- Do not try to use an unrelevant asset to represent another object.
+
+Before the next step, please check if the generated task is a bad task shown in the above examples and meet all the criteria as stated above. Specifically, the task **only** contains a multi-step trajectory of at most six motions, and should have a **clear** goal. In addtion, all the subtasks you use MUST appear in the task library, including the easiest reaching tasks. Explain in detail, and get a conclusion. If the task is a bad task, regenerate a new one.
+
+Then, format the answer in Python dictionaries with keys "task-name" and value type string with lower-case and separated by hyphens, "task-description" (one specific sentence), and value type string, and "assets-used" and value type list of strings, and "success-criteria" (choose from "articulated_open", "articulated_closed", "distance_articulated_rigidbody", "distance_gripper_rigidbody", and "distance_gripper_articulated") and value type list of strings. Try to be as creative as possible. Please first output the long-horizon task and then the sub-tasks, and make each task and sub-task as a python dictionary in a separate cell.
+
+Please remember NOT to add any extra comments to the Python dictionary. 
+
+Let's think step by step to creeate a new task PLACEHOLDER.

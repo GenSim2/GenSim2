@@ -1,0 +1,23 @@
+{
+    "keypoints": {
+        "articulated_object_head": [
+            0.4039854109287262,
+            0.3657054603099823,
+            0.23715099692344666
+        ],
+        "articulated_object_inside": [
+            0.391930490732193,
+            0.497977077960968,
+            0.12448878586292267
+        ]
+    },
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle point of the the drawer handle",
+        "articulated_object_inside": "a point to drop object inside the drawer"
+    },
+    "scale": 0.3,
+    "joint_position_range": [
+        0,
+        0.14
+    ]
+}

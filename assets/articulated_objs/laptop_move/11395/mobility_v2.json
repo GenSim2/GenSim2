@@ -1,0 +1,88 @@
+[
+    {
+        "id": 0,
+        "parent": -1,
+        "joint": "free",
+        "name": "base_side",
+        "parts": [
+            {
+                "id": 5,
+                "name": "keyboard",
+                "children": []
+            },
+            {
+                "id": 8,
+                "name": "touchpad_surface",
+                "children": []
+            },
+            {
+                "id": 9,
+                "name": "button",
+                "children": []
+            },
+            {
+                "id": 10,
+                "name": "button",
+                "children": []
+            },
+            {
+                "id": 7,
+                "name": "base_frame",
+                "children": []
+            }
+        ],
+        "jointData": {}
+    },
+    {
+        "id": 1,
+        "parent": 0,
+        "joint": "hinge",
+        "name": "shaft",
+        "parts": [
+            {
+                "id": 4,
+                "name": "shaft",
+                "children": []
+            },
+            {
+                "id": 11,
+                "name": "screen",
+                "children": []
+            },
+            {
+                "id": 12,
+                "name": "screen_frame",
+                "children": []
+            },
+            {
+                "id": 13,
+                "name": "camera",
+                "children": []
+            },
+            {
+                "id": 15,
+                "name": "other_leaf",
+                "children": []
+            }
+        ],
+        "jointData": {
+            "axis": {
+                "origin": [
+                    0.6730280000000004,
+                    -0.2151984389210292,
+                    -0.1623739963423227
+                ],
+                "direction": [
+                    1,
+                    0,
+                    0
+                ]
+            },
+            "limit": {
+                "a": 105.11999999999999,
+                "b": 0,
+                "noLimit": false
+            }
+        }
+    }
+]

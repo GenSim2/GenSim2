@@ -1,0 +1,2 @@
+link_0 hinge switch switch
+link_1 static vertical_support vertical_support tube mouth

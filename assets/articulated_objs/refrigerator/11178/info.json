@@ -1,0 +1,16 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.09441175216976751, -0.01074462082258269, 0.5128725747841213],
+        "articulated_object_inside_base": [-0.18, 0.2, -0.35]
+    }, 
+    
+    "keypoint_descriptions": {
+        "articulated_object_head": "the middle point of the the refrigerator handle",
+        "articulated_object_inside_base": "the point inside the refrigerator to place the object"
+    }, 
+    
+    "scale": 0.5, 
+    
+    "joint_position_range": [0, 1.4]
+}

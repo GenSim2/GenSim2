@@ -1,0 +1,146 @@
+You are an expert in solving robotic tasks by coding task solution configs. Now please solve the newly generated task by generating the task solution config. 
+The task solution config contains necessary positions, parameters and keypoints for an existing trajectory optimization algorithm to solve a feasible solution. It mainly contains two parts, constraints and pre/post-actuation motions:
+(1) The constraints are used to ensure the gripper to be in contact with the object and to implicitly define a certain actuation pose.
+(2) The pre-actuation motions are used to move the gripper to the actuation pose, while the post-actuation motions are used to complete the task after the actuation pose.
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are all the available keypoint names for the used manipulator and asset and their descriptions.
+
+KEYPOINT_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the constraint part of some configs.
+
+Note that, in the constraint list, you need to define different items of constraint to define an actuation pose for the task. There are some pre-defined types of constraints you can use:
+(1) point2point_constraint: This constraint is used to ensure two keypoints ("keypoint_name" and "target_keypoint_name", respectively on the tool and object) to be in contact.
+(2) frame_axis_parallel: This constraint is used to ensure two axes (respectively on the tool and object) to be parallel. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by "target_axis"([1,0,0] or [0,1,0] or [0,0,1]) which is in the coordinate frame of "target_axis_frame"(world or object).
+(3) frame_axis_orthogonal: This constraint is used to ensure two axes (respectively on the tool and object) to be orthogonal. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by "target_axis"([1,0,0] or [0,1,0] or [0,0,1]) which is in the coordinate frame of "target_axis_frame"(world or object).
+(4) keypoint_axis_parallel:  This constraint is used to ensure two axes (respectively on the tool and object) to be parallel. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by another unit vector from "target_axis_from_keypoint_name" to "target_axis_to_keypoint_name".
+(5) keypoint_axis_orthogonal:  This constraint is used to ensure two axes (respectively on the tool and object) to be orthogonal. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by another unit vector from "target_axis_from_keypoint_name" to "target_axis_to_keypoint_name".
+The tolerance is used to define the tolerance of the constraint. 
+The target_inner_product is used to define the inner product between the two axes. For example, if you want to ensure two axes to be parallel and of same direction, you can set the target_inner_product to 1.0. If you want to ensure two axes to be parallel and of opposite direction, you can set the target_inner_product to -1.0. If you want to ensure two axes to be orthogonal, you can set the target_inner_product to 0.0.
+
+Usually, you need to define one point2point_constraint to ensure contact and several axis constraints to adjust the actuation pose.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+tool_keypoint_name_list: [tool_head, tool_tail, tool_side]
+object_keypoint_name_list: [object_head, object_tail]
+
+constraint_list:
+# ensure the gripper to be in contact with the box lid with whole fingers
+- keypoint_name: tool_tail
+  target_keypoint_name: object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure surface of the gripper to be parallel to the box lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 1
+  type: frame_axis_parallel
+
+# ensure surface of the gripper to be parallel to the box lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: object_head
+  target_axis_to_keypoint_idx: 1
+  target_axis_to_keypoint_name: object_tail
+  tolerance: 0.01
+  target_inner_product: -1
+  type: keypoint_axis_parallel
+
+# ensure gripper to point directly to the direction of the box
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: object_head
+  target_axis_to_keypoint_idx: 1
+  target_axis_to_keypoint_name: object_tail
+  tolerance: 0.01
+  target_inner_product: 0
+  type: keypoint_axis_orthogonal
+
+# ensure gripper to point directly to the direction of the box
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 0
+  type: frame_axis_orthogonal
+
+
+
+"""
+
+"""
+task_name: TurnOnFaucet
+category_name: Articulated
+
+keypoint_name_list: [tool_head, tool_tail, tool_side]
+object_keypoint_name_list: [object_head]
+
+constraint_list:
+# ensure the gripper to hold the faucet handle with fingers
+- keypoint_name: tool_tail
+  target_keypoint_name: object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure the gripper to point straight to the table
+- axis_from_keypoint_name: tool_head 
+  axis_to_keypoint_name: tool_tail
+  target_axis: [0, 0, 1.0]
+  target_axis_frame: world
+  tolerance: 0.01
+  target_inner_product: 1
+  type: frame_axis_parallel
+
+# ensure the axis between gripper finger tips to be parallel to the table
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [0, 0, 1.0]
+  target_axis_frame: world
+  tolerance: 0.01
+  type: frame_axis_orthogonal
+  target_inner_product: 0
+
+# ensure the axis between gripper finger tips to be orthogonal to the faucet handle
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [0, 0, 1.0]
+  target_axis_frame: object
+  tolerance: 0.01
+  type: frame_axis_orthogonal
+  target_inner_product: 0
+
+# ensure the axis between gripper finger tips to be orthogonal to the faucet handle
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  type: frame_axis_parallel
+  target_inner_product: 1
+
+
+
+"""
+
+=========
+
+Now please first generate the constraint part for task "TASK_NAME_TEMPLATE" in the same config format as the above. 
+Do not use terms that you have not seen before. 
+The output should be in the YAML format with no extra text.

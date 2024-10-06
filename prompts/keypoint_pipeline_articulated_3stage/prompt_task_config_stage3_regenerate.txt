@@ -1,0 +1,47 @@
+The previous solutions are not feasible. Please regenerate SOLVER_TRIALS new solution configs that are different from the previous ones. 
+Remember that you only need to regenerate the post-actuation motion part of the solution config, and not the task or task code.
+
+The reasons for the previous failure(s) are: 
+
+REGENERATE_REASON_TEMPLATE
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the pre-actuation part of some task solution configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+# Post-actuation motions for the manipulator. 
+# Post-actuation motions should be in the format of a python list. Each element in the list should be a string with lower-case and separated by hyphens.
+
+# post-actuation pose list
+post_actuation_motions: ["move-backward"] # [pull lid down]
+
+"""
+
+"""
+task_name: OpenLaptop
+category_name: Articulated
+
+# Pre-actuation and post-actuation motions for the manipulator. 
+# Post-actuation motions should be in the format of a python list. Each element in the list should be a string with lower-case and separated by hyphens.
+
+# post-actuation pose list. pushing down
+post_actuation_motions: ["move-forward"] # [push lid up]
+
+"""
+
+=========
+Please output the SOLVER_TRIALS different configs in order. The post actuation motions of different configs can be diverse, but their task names should be the same.
+Do not output configs that are the same as the previous ones.
+Do not use terms that you have not seen before. 
+Each config should be in the YAML format as the examples above.
+The diversity of the post-actuation motions can be achieved by using different axes for translation.
+Notice that the post-actuation motions are relative to the actuation pose and the translation motions are represented in corrdinates relative to the manipulator base. 
+Please think step by step, try your best to understand the job, and show your reasoning process.

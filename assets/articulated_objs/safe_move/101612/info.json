@@ -1,0 +1,15 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [0, 0.52, 0.56]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the nearest edge of the safe"
+    }, 
+    
+    "scale": 0.2,
+
+    "joint_position_range": [0, 0.3]
+}

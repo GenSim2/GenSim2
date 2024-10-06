@@ -1,0 +1,76 @@
+You are an expert in solving robotic tasks by providing some motion plans and coding task solution configs for a 2-finger robot arm. Now please solve the newly generated task by generating the task solution config. 
+The task solution config contains necessary positions, parameters and keypoints for an existing trajectory optimization algorithm to solve a feasible solution. It mainly contains three parts, constraints, pre-actuation motions and post-actuation motions:
+(1) The constraints are used to ensure the gripper to be in contact with the object and to implicitly define a certain actuation pose. An actuation pose means the key frame that the robot arm manipulate the object, usually represents the moment when the gripper get contact with the object.
+(2) The pre-actuation motions are used to move the gripper to the actuation pose without collision to the table and useless part of the object to manipulate.
+(3) The post-actuation motions are used to complete the task after the actuation pose.
+
+Now that you have given the constraints part of the task solution config, you need to generate SOLVER_TRIALS different pre-actuation motions for task "TASK_NAME_TEMPLATE" following the same config format shown above based on the constraint part that is generated previously.
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the pre-actuation part of some task solution configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+# Pre-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finger, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", 0.06], ["translate_z", -0.08]] # [adjust gripper direction and approach, move gripper above lid]
+
+
+"""
+
+"""
+task_name: OpenLaptop
+category_name: Articulated
+
+# Pre-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_x", -0.05], ["translate_z", -0.05]] # [adjust gripper direction and approach, move gripper below lid]
+
+
+"""
+
+"""
+task_name: TurnOnFaucet
+category_name: Articulated
+
+# Pre-actuation motions for the manipulator. 
+# Each motion is represented in the [`mode`,`value`] format, where:
+# `mode` can be only only choose from {`translate_x`, `translate_y`, `translate_z`, `rotate`}
+# `value` for `translate_x`, `translate_y` or `translate_z` is the corrdinate relative to the base center of the gripper in the `x`, 'y', 'z' axis; `value` for `rotate` is the relative radian relative to the revolute joint of the object.
+# Before generation, we should highlight that, the base is the center of the gripper, Y axis is on the plane of the gripper base and is perpendicular to the direction from the gripper to the finner, Z axis points from gripper to fingers, and X axis points out to the front direction of the plane of the gripper base.
+# Units are in meters and radians respectively.
+
+# pre-actuation pose list. 
+pre_actuation_motions: [["translate_z", -0.05]] # [move above handle]
+
+
+"""
+
+=========
+The initial scene of this task is visualized in the first uploaded image. The actuation pose of this task is visualized in the second uploaded image. The frame axes of the gripper and the object are respectively visulized in the second and third images, where red, green and blue axes represent X, Y and Z axes respectively.
+
+The pre-actuation motions of different solutions can be diverse, but their task names should be the same.
+Do not use terms that you have not seen before. 
+The output should be in the YAML format with no extra text.
+The diversity of the pre/post-actuation motions can be achieved by using different axes for translation.
+Notice that the pre-actuation and post-actuation motions are relative to the actuation pose and the translation motions are represented in corrdinates relative to the manipulator base. Let's think step by step, try your best to understand the job, if you can generate perfect solution configs, I will give you $10,000 tip.
+

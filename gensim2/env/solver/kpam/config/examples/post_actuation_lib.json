@@ -1,0 +1,13 @@
+[
+    {
+        "post_actuation_motions": ["move-backward", "move-left"]
+    },
+
+    {
+        "post_actuation_motions": ["move-backward"]
+    },
+
+    {
+        "post_actuation_motions": ["move-forward", "move-up"]
+    }
+]

@@ -1,0 +1,153 @@
+You are an expert in solving robotic tasks by providing some motion plans and coding task solution configs for a 2-finger robot arm. Now please solve the newly generated task by generating the task solution config. 
+The task solution config contains necessary positions, parameters and keypoints for an existing trajectory optimization algorithm to solve a feasible solution. It mainly contains three parts, constraints, pre-actuation motions and post-actuation motions:
+(1) The constraints are used to ensure the gripper to be in contact with the object and to implicitly define a certain actuation pose. An actuation pose means the key frame that the robot arm manipulate the object, usually represents the moment when the gripper get contact with the object.
+(2) The pre-actuation motions are used to move the gripper to the actuation pose without collision to the table and useless part of the object to manipulate.
+(3) The post-actuation motions are used to complete the task after the actuation pose.
+
+Now first generate SOLVER_TRIALS different configs task "TASK_NAME_TEMPLATE". 
+
+=========
+Here is the task description.
+
+TASK_DESCRIPTION_TEMPLATE
+
+=========
+Here are all the available keypoint names for the used manipulator and asset and their descriptions.
+
+KEYPOINT_DESCRIPTION_TEMPLATE
+
+=========
+Here are some examples of the constraint part of some configs.
+
+"""
+task_name: CloseBox
+category_name: Articulated
+
+tool_keypoint_name_list: [tool_head, tool_tail, tool_side]
+object_keypoint_name_list: [articulated_object_head, articulated_object_tail]
+
+constraint_list:
+# ensure the gripper to be in contact with the box lid with whole fingers
+- keypoint_name: tool_tail
+  target_keypoint_name: articulated_object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure surface of the gripper to be parallel to the box lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 1
+  type: frame_axis_parallel
+
+# ensure surface of the gripper to be parallel to the box lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: articulated_object_head
+  target_axis_to_keypoint_idx: 1
+  target_axis_to_keypoint_name: articulated_object_tail
+  tolerance: 0.01
+  target_inner_product: -1
+  type: keypoint_axis_parallel
+
+# ensure gripper to point directly to the direction of the box
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis_from_keypoint_idx: 0
+  target_axis_from_keypoint_name: articulated_object_head
+  target_axis_to_keypoint_idx: 1
+  target_axis_to_keypoint_name: articulated_object_tail
+  tolerance: 0.01
+  target_inner_product: 0
+  type: keypoint_axis_orthogonal
+
+# ensure gripper to point directly to the direction of the box
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 0
+  type: frame_axis_orthogonal
+
+"""
+
+"""
+task_name: OpenLaptop
+category_name: Articulated
+
+tool_keypoint_name_list: [tool_head, tool_tail, tool_side]
+object_keypoint_name_list: [articulated_object_head, articulated_object_tail]
+
+constraint_list:
+
+- keypoint_name: tool_tail
+  target_keypoint_name: articulated_object_head
+  tolerance: 0.0001
+  type: point2point_constraint
+
+# ensure surface of the gripper to be parallel to the laptop lid
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 1
+  type: frame_axis_parallel
+
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis_from_keypoint_name: articulated_object_head
+  target_axis_to_keypoint_name: articulated_object_tail
+  tolerance: 0.01
+  target_inner_product: -1
+  type: keypoint_axis_parallel
+
+# ensure gripper to point directly to the direction of the laptop
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_side
+  target_axis_from_keypoint_name: articulated_object_head
+  target_axis_to_keypoint_name: articulated_object_tail
+  tolerance: 0.01
+  target_inner_product: 0
+  type: keypoint_axis_orthogonal
+
+- axis_from_keypoint_name: tool_head
+  axis_to_keypoint_name: tool_tail
+  target_axis: [1.0, 0, 0]
+  target_axis_frame: object
+  tolerance: 0.01
+  target_inner_product: 0
+  type: frame_axis_orthogonal
+"""
+
+=========
+The initial scene of this task is visualized in the first uploaded image. The frame axes of the gripper and the object are respectively visulized in the second and third images, where red, green and blue axes represent X, Y and Z axes respectively.
+
+Note that, in the constraint list, you need to define different items of constraint to define an actuation pose for the task. 
+There are some rules for the constraint generation:
+1. There are some pre-defined types of constraints you can use:
+  (1) point2point_constraint: This constraint is used to ensure two keypoints ("keypoint_name" and "target_keypoint_name", respectively on the tool and object) to be in contact.
+  (2) frame_axis_parallel: This constraint is used to ensure two axes (respectively on the tool and object) to be parallel. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by "target_axis"([1,0,0] or [0,1,0] or [0,0,1]) which is in the coordinate frame of "target_axis_frame"(world or object).
+  (3) frame_axis_orthogonal: This constraint is used to ensure two axes (respectively on the tool and object) to be orthogonal. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by "target_axis"([1,0,0] or [0,1,0] or [0,0,1]) which is in the coordinate frame of "target_axis_frame"(world or object).
+  (4) keypoint_axis_parallel:  This constraint is used to ensure two axes (respectively on the tool and object) to be parallel. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by another unit vector from "target_axis_from_keypoint_name" to "target_axis_to_keypoint_name".
+  (5) keypoint_axis_orthogonal:  This constraint is used to ensure two axes (respectively on the tool and object) to be orthogonal. The axis on the tool is defined by a unit vector from "axis_from_keypoint_name" to "axis_to_keypoint_name", while the axis on the object is defined by another unit vector from "target_axis_from_keypoint_name" to "target_axis_to_keypoint_name".
+  The tolerance is used to define the tolerance of the constraint. 
+2. The target_inner_product is used to define the inner product between the two axes. For example, if you want to ensure two axes to be parallel and of same direction, you can set the target_inner_product to 1.0. If you want to ensure two axes to be parallel and of opposite direction, you can set the target_inner_product to -1.0. If you want to ensure two axes to be orthogonal, you can set the target_inner_product to 0.0.
+3. Usually, you need to define one point2point_constraint to ensure contact and several axis constraints to adjust the actuation pose.
+4. The constraints of different configs can be diverse, but their task names should be the same. Do not use terms that you have not seen before. 
+5. Z axis positive points from gripper to fingers and X axis points to the front direction in the local frame of the gripper. The frame axes of the gripper visulized in the second image, where red, green and blue axes represent X, Y and Z axes respectively.
+
+=========
+Please output the SOLVER_TRIALS different configs in order. Each config should be in the same YAML format as the examples above.
+
+Please first list the constraints you reason about this problem in natural languages by combining some of the following templates and filling in the blanks(< >):
+- The points <keypoint name> and <keypoint name> should coincide.
+- The axis from <keypoint name> to <keypoint name> should be <aligned / opposite / orthogonal> to the axis from <keypoint name> to <keypoint name>.
+- The axis from <keypoint name> to <keypoint name> should be <aligned / opposite / orthogonal> to the <x / y / z> axis of the object in the coordinate frame of <world / object>.
+
+Then parse the languages generated above to the required YAML format.
+

@@ -1,0 +1,242 @@
+{
+    "open_drawer": {
+        "assets-used": [
+            "drawer"
+        ],
+        "task-description": "Open the drawer",
+        "task-name": "open-drawer"
+    },
+    "push_drawer_close": {
+        "assets-used": [
+            "drawer"
+        ],
+        "task-description": "Push the drawer to a fully close position",
+        "task-name": "push-drawer-close"
+    },
+    "press_toaster_lever": {
+        "assets-used": [
+            "toaster_press"
+        ],
+        "task-description": "Press the lever of a toaster down",
+        "task-name": "press-toaster-lever"
+    },
+    "swing_bucket_handle": {
+        "assets-used": [
+            "bucket_swing"
+        ],
+        "task-description": "Swing the bucket handle to a position perpendicular to its initial position.",
+        "task-name": "swing-bucket-handle"
+    },
+    "open_safe": {
+        "assets-used": [
+            "safe_rotate"
+        ],
+        "task-description": "Rotate the safe's door to an open position.",
+        "task-name": "open-safe"
+    },
+    "open_refrigerator_door": {
+        "assets-used": [
+            "refrigerator"
+        ],
+        "task-description": "Open the refrigerator door",
+        "task-name": "open-refrigerator-door"
+    },
+    "close_safe": {
+        "assets-used": [
+            "safe_rotate"
+        ],
+        "task-description": "Close a safe",
+        "task-name": "close-safe"
+    },
+    "swing_door_open": {
+        "assets-used": [
+            "door"
+        ],
+        "task-description": "Swing a door open.",
+        "task-name": "swing-door-open"
+    },
+    "close_refrigerator_door": {
+        "assets-used": [
+            "refrigerator"
+        ],
+        "task-description": "Close the refrigerator door.",
+        "task-name": "close-refrigerator-door"
+    },
+    "toggle_door_close": {
+        "assets-used": [
+            "door"
+        ],
+        "task-description": "Close an open door",
+        "task-name": "toggle-door-close"
+    },
+    "swing_window_left": {
+        "asset-used": [
+            "window_push"
+        ],
+        "task-description": "Slide a window to the left to an open position.",
+        "task-name": "swing-window-left"
+    },
+    "rotate_microwave_door": {
+        "asset-used": [
+            "microwave"
+        ],
+        "task-description": "Rotate the microwave door open",
+        "task-name": "rotate-microwave-door"
+    },
+    "lift_toilet_lid": {
+        "asset-used": [
+            "toilet"
+        ],
+        "task-description": "Lift the lid of the toilet.",
+        "task-name": "lift-toilet-lid"
+    },
+    "relocate_suitcase": {
+        "asset-used": [
+            "suitcase_move"
+        ],
+        "task-description": "Move the suitcase to a new location on the table.",
+        "task-name": "relocate-suitcase"
+    },
+    "swing_suitcase_lid_open": {
+        "asset-used": [
+            "suitcase_rotate"
+        ],
+        "task-description": "Swing the lid of a suitcase open",
+        "task-name": "relocate-suitcase"
+    },
+    "open_washing_machine_door": {
+        "asset-used": [
+            "washing_machine"
+        ],
+        "task-description": "Open the door of the washing machine",
+        "task-name": "open-washing-machine-door"
+    },
+    "press_toilet_lid_down": {
+        "assets-used": [
+            "toilet"
+        ],
+        "task-description": "Press the lid of the toilet down to a closed position.",
+        "task-name": "press-toilet-lid-down"
+    },
+    "close_suitcase_lid": {
+        "assets-used": [
+            "suitcase_rotate"
+        ],
+        "task-description": "Close the lid of a suitcase.",
+        "task-name": "close-suitcase-lid"
+    },
+    "flip_switch": {
+        "assets-used": [
+            "switch"
+        ],
+        "task-description": "Flip a switch from off to on.",
+        "task-name": "flip-switch"
+    },
+    "push_toaster_forward": {
+        "assets-used": [
+            "toaster_move"
+        ],
+        "task-description": "Push the toaster to a new location on the table.",
+        "task-name": "push-toaster-forward"
+    },
+    "lift_bucket_upright": {
+        "assets-used": [
+            "bucket_lift"
+        ],
+        "task-description": "Lift a tipped-over bucket into an upright position.",
+        "task-name": "lift-bucket-upright"
+    },
+    "tilt_window_open": {
+        "asset-used": [
+            "window_rotate"
+        ],
+        "task-description": "Tilt a closed window to an open position.",
+        "task-name": "tilt-window-open"
+    },
+    "rotate_dishwasher_knob_open": {
+        "asset-used": [
+            "dishwasher"
+        ],
+        "task-description": "Rotate the dishwasher knob to an open position.",
+        "task-name": "rotate-dishwasher-knob-open"
+    },
+    "lift_bag": {
+        "assets-used": [
+            "bag_lift"
+        ],
+        "task-description": "Lift a bag to a predefined height from the table.",
+        "task-name": "lift-bag"
+    },
+    "move_bag_forward": {
+        "assets-used": [
+            "bag_move"
+        ],
+        "task-description": "Slide a bag forward on the table by a specified distance.",
+        "task-name": "move-bag-forward"
+    },
+    "push_box": {
+        "assets-used": [
+            "box_move"
+        ],
+        "task-description": "Push the box forward on the table.",
+        "task-name": "push-box"
+    },
+    "sway_bag_strap": {
+        "assets-used": [
+            "bag_rotate"
+        ],
+        "task-description": "Sway the strap of a bag to a new position.",
+        "task-name": "sway-bag-strap"
+    },
+    "close_microwave": {
+        "assets-used": [
+            "microwave"
+        ],
+        "task-description": "Close the microwave door.",
+        "task-name": "close-microwave"
+    },
+    "rotate_oven_knob": {
+        "assets-used": [
+            "oven"
+        ],
+        "task-description": "Rotate the oven knob to an open position.",
+        "task-name": "rotate-oven-knob"
+    },
+    "push_oven_close": {
+        "assets-used": [
+            "oven"
+        ],
+        "task-description": "Push the oven door to a closed position.",
+        "task-name": "push-oven-door"
+    },
+    "move_window_right": {
+        "asset-used": [
+            "window_push"
+        ],
+        "task-description": "Slide a window to the right to a closed position.",
+        "task-name": "move-window-right"
+    },
+    "close_window_by_rotating": {
+        "asset-used": [
+            "window_rotate"
+        ],
+        "task-description": "Close a window by rotating.",
+        "task-name": "close-window-by-rotating"
+    },
+    "close_dishwasher":
+    {
+        "asset-used": [
+            "dishwasher"
+        ],
+        "task-description": "Close the dishwasher door to a fully closed position",
+        "task-name": "close-dishwasher"
+    },
+    "press_stapler_lever": {
+        "asset-used": [
+            "stapler_press"
+        ],
+        "task-description": "Press the lever of a stapler down to simulate stapling.",
+        "task-name": "press-stapler-lever"
+    }
+
+}

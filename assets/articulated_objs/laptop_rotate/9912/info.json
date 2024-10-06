@@ -1,0 +1,17 @@
+{
+    "keypoints": 
+    {
+        "articulated_object_head": [-0.05303008854389191, 0.6427701711654663, -0.4383925795555115], 
+        "articulated_object_tail": [-0.04138341546058655, -0.13299304246902466, -0.20661574602127075]
+    }, 
+    
+    "keypoint_descriptions": 
+    {
+        "articulated_object_head": "the midpoint of the edge of the laptop surface",
+        "articulated_object_tail": "the midpoint of the joint connecting the laptop surface and panel"
+    }, 
+    
+    "scale": 0.25,
+
+    "axis": "x"
+}

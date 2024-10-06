@@ -1,0 +1,145 @@
+We have some robotic manipulation tasks, which need you to generate executable reward functions according to their descriptions and plans. All the codes can only call the following functions:
+
+[optional]
+```
+def l2_distance_reward(self, obj1, obj2)
+```
+This function calculates the reward based on the L2 distance between two objects, aimed at minimizing the distance between them.
+The variables obj1 and obj2 can be selected from the following list: ['palm', 'faucet', 'laptop', 'bucket', 'toilet', 'box', 'ycb', 'hammer', 'pin', 'spatula', 'object']
+
+[optional]
+```
+def joint_fracion_reward(self, obj, fraction)
+```
+This function calculates the reward based on the openness of the object.
+The variable obj can be selected from the following list: ['palm', 'faucet', 'laptop', 'toilet']
+The variable fraction can be any certain value between 0 and 1, where 0 represents closed and 1 represents open.
+
+[optional]
+```
+def height_reward(self, obj, height)
+```
+This function calculates the reward based on the openness of the object, aimed at placing the object to the given height.
+The variables obj can be selected from the following list: ['palm', 'bucket', 'box', 'ycb', 'pin', 'object']
+The variable fraction can be any certain value.
+
+[optional] 
+```
+def grasp_reward(obj, max_angle)
+```
+This function encourages the palm grasps the object.
+The variables obj can be selected from the following list: ['ycb']
+The variable max_angle can be any certain value between 0 and 180, where 0 represents fully grasped and 180 represents fully released.
+
+[optional]
+```
+def keypoint_reward(self, keypoints, keypoint_targets, vectors, vector_targets, vector_target_values)
+```
+This function calculates the reward of the tasks with tools, aimed at minimizing the distance between keypoints and their targets, as well as the difference between the orientation of the tool and that of its target.
+Before calling this function, all the parameters should be defined in advance.
+The variable keypoints and keypoint_targets are lists of keypoints on the tool and the object separately. Keypoints can be get using `get_keypoint` function.
+The variable vectors and vector_targets are lists of vectors representing the orientation of the tool and the target orientation. Vectors can be get using `get_keypoint_vector` function or defined as a 3-dimentional array.
+The variable vector_target_values is a list of vector representing the relation between vectors and vector_targets, where 1 represents parallel and 0 represents perpendicular.
+The tool can only be selected from the list: ['hammer', 'spatula']
+
+[optional]
+```
+def progress(self, reward_list)
+```
+The function calculates the cumulative reward based on the input reward list.
+
+Below are the methods in the Tool class and the ToolObject class that can be used when defining variables:
+
+[function]
+```
+def get_keypoint(name)
+```
+The function returns a point using given position.
+The variable name can only be selected from the list: ["head", "tail", "side"].
+
+[function]:
+```
+def get_keypoint_vector(from_name, to_name)
+```
+The method returns a vector using two given endpoints.
+The variables from_name and to_name can be selected from the list: ["head", "tail", "side"].
+
+You should always obey the following rules:
+1. Once you have chosen which ojbect to fill in the function, add 'self.' as prefix. For example, replace 'palm' with 'self.palm'.
+2. If you are not sure which value to fill in, just give a value based on your best guess.
+3. Do not invent new functions or classes. The only allowed functions you can call are the ones listed above. Do not leave unimplemented code blocks in your response.
+4. Some objects, such as bucket, should have the opening pointing upward throughout the manipulation. So the related tasks are not necessarily better when completed faster.
+5. Every optional function can be used more than once. If the function has nothing to do with the task, just ignore it.
+6. Make sure that rewards are added according to the order of the plan.
+
+Now if you understand, please say yes and tell me what you need to do. Then I will show you some examples for reference.
+
+[example]
+Task: Turn on faucet
+Plan: 
+The manipulator's palm should move close to the faucet.
+Faucet needs to be open.
+Reward:
+```
+def get_reward(self):
+    reward_list = []
+    reward_list.append(self.l2_distance_reward(self.palm, self.faucet))
+    reward_list.append(self.joint_fracion_reward(self.faucet, 1))
+    reward = self.progress(reward_list)
+    return reward
+```
+
+[example]
+Task: Open the box, place ycb object inside and close it
+Plan: 
+The manipulator's palm should move close to box.
+Box needs to be open.
+The manipulator's palm should move close to ycb.
+The manipulator's palm should grasp ycb.
+YCB should be placed close to box center.
+Box needs to be closed.
+Reward:
+def get_reward(self):
+    reward_list = []
+    reward_list.append(self.l2_distance_reward(self.palm, self.box))  
+    reward_list.append(self.joint_fracion_reward(self.box, 1))  
+    reward_list.append(self.l2_distance_reward(self.palm, self.ycb)) 
+    reward_list.append(self.grasp_reward(self.ycb, 0))  
+    reward_list.append(self.l2_distance_reward(self.ycb, self.box))  
+    reward_list.append(self.joint_fracion_reward(self.box, 0)) 
+    reward = self.progress(reward_list)
+    return reward
+
+[example]
+Task: Use the hammer to press the pin
+Plan:
+The manipulator's palm holds hammer as a tool.
+Hammer's head needs to be close to pin's head.
+The head to tail direction of hammer should be parallel to z axis.
+The head to side direction of hammer should be perpendicular to z axis.
+Pin's head needs to placed at a height of 0.0.
+Reward:
+```
+def get_reward(self):
+    hammer_head = self.hammer.get_keypoint(name="head")
+    pin_head = self.pin.get_keypoint(name="head")
+    keypoints = [hammer_head]
+    keypoint_targets = [pin_head]
+    vectors = [self.hammer.get_keypoint_vector(from_name="head", to_name="tail"),
+                self.hammer.get_keypoint_vector(from_name="head", to_name="side")]
+    vector_targets = [np.array([0,0,1]), np.array([0,0,1])]
+    vector_target_values = [1, 0]
+
+    reward_list = []
+    reward_list.append(self.l2_distance_reward(hammer_head, pin_head))
+    reward_list.append(self.tool_reward(keypoints, keypoint_targets, vectors, vector_targets, vector_target_values))
+    reward_list.append(self.height_reward(pin_head, 0.0))  
+    reward = self.progress(reward_list)
+    return reward
+```
+
+Now please implemente the `get_reward` function for the new task with the following information:
+task name: "TASK_NAME_TEMPLATE"
+task plan: "TASK_PLAN_TEMPLATE"
+
+Do not generate additional texts other than code, such as explanation.
