@@ -1,7 +1,7 @@
 ## Step-by-step Installation
 0. Clone the repository
     ```shell
-    git clone https://github.com/GenSim2/gensim2.git --recursive
+    git clone https://github.com/GenSim2/GenSim2.git --recursive
     cd gensim2    ```
 1. Create a conda environment
     ```shell

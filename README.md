@@ -26,7 +26,7 @@ This repo explores using an LLM code generation pipeline to generate task codes 
 
 0. Clone the repository
     ```shell
-    git clone https://github.com/GenSim2/gensim2.git --recursive
+    git clone https://github.com/GenSim2/GenSim2.git --recursive
     cd gensim2
     ```
 
