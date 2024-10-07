@@ -1,6 +1,6 @@
 # 🦾 GenSim2: Scaling Robot Data Generation with Multi-modal and Reasoning LLMs
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Paper](https://badgen.net/badge/icon/arXiv?icon=awesome&label&color=red&style=flat-square)]()
+[![Paper](https://badgen.net/badge/icon/arXiv?icon=awesome&label&color=red&style=flat-square)](https://arxiv.org/abs/2410.03645)
 [![Website](https://img.shields.io/badge/Website-gensim2-blue?style=flat-square)](https://gensim2.github.io)
 [![Python](https://img.shields.io/badge/Python-%3E=3.8-blue?style=flat-square)]()
 [![PyTorch](https://img.shields.io/badge/PyTorch-%3E=2.0-orange?style=flat-square)]()
@@ -12,7 +12,7 @@
 $^1$ Tsinghua University, $^2$ UCSD, $^3$ Shanghai Jiao Tong University, $^4$ MIT CSAIL
 \* equal contribution 
 
-[Project Page](https://gensim2.github.io/) | [Arxiv](https://arxiv.org/abs/2408)
+[Project Page](https://gensim2.github.io/) | [Arxiv](https://arxiv.org/abs/2410.03645)
 
 Conference on Robot Learning, 2024
 
@@ -277,13 +277,14 @@ If you find GenSim2 useful, please consider citing:
 
 
 ```bibtex
-@inproceedings{gensim2,
+@misc{hua2024gensim2scalingrobotdata,
       title={GenSim2: Scaling Robot Data Generation with Multi-modal and Reasoning LLMs}, 
-      author={Pu, Hua and Minghuan, Liu and Annabella, Macaluso and Yunfeng, Lin and Weinan, Zhang and Huazhe, Xu and Lirui, Wang},
+      author={Pu Hua and Minghuan Liu and Annabella Macaluso and Yunfeng Lin and Weinan Zhang and Huazhe Xu and Lirui Wang},
       year={2024},
-      eprint={2308.},
+      eprint={2410.03645},
       archivePrefix={arXiv},
-      primaryClass={cs.RO}
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2410.03645}, 
 }
 ```
 
