@@ -53,7 +53,6 @@ data_10/
 *.zip
 **/*data_collection_result.json
 vis/
-gensim2/agent/third_party/
 gensim2/dataset/
 plots/
 gensim2/dataset_*/
