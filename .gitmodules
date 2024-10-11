@@ -1,0 +1,3 @@
+[submodule "gensim2/agent/third_party/openpoints"]
+	path = gensim2/agent/third_party/openpoints
+	url = https://github.com/guochengqian/openpoints
