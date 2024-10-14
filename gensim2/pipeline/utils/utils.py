@@ -47,7 +47,7 @@ from gensim2.pipeline.utils.trimesh_render import lookAt
 from gensim2.pipeline.utils.trimesh_URDF import getURDF
 
 
-model = "gpt-4-vision-preview"
+model = "gpt-4-turbo"
 reply_max_tokens = 6000
 
 
@@ -306,7 +306,7 @@ def set_llm_model(model_name):
     model = model_name
 
     print("using gpt model:", model)
-    if model_name == "gpt-4-1106-preview":  # longer context
+    if model_name == "gpt-4o":  # longer context
         reply_max_tokens = 100 * 1000
 
 
@@ -745,7 +745,7 @@ def generate_feedback_visual(
     insert_system_message(truncated_messages)
 
     params = {
-        "model": "gpt-4-vision-preview",
+        "model": "gpt-4-turbo",
         "max_tokens": max_tokens,
         "temperature": temperature,
         "messages": truncated_messages,

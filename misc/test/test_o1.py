@@ -1,10 +1,7 @@
-# from openai import OpenAI
 import openai
 
-# client = OpenAI()
-
 response = openai.ChatCompletion.create(
-    model="gpt-4-1106-preview",
+    model="o1-preview",
     messages=[
         {
             "role": "user",
@@ -12,7 +9,4 @@ response = openai.ChatCompletion.create(
         }
     ],
 )
-import ipdb
-
-ipdb.set_trace()
 print(response.choices[0].message.content)

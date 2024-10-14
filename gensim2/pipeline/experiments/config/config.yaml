@@ -12,7 +12,7 @@ solver_trials: 3 # how many times of spawning each solver generated
 max_regeneration: 5 # how many times of regenerating the prompt
 output_folder: 'logs/'
 model_output_dir: '' # to be filled in with date
-gpt_model: "gpt-4-1106-preview" # which openai gpt model to use
+gpt_model: "gpt-4o" # which openai gpt model to use
 openai_key: ${oc.env:OPENAI_KEY}
 mode: topdown
 
