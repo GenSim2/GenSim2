@@ -25,6 +25,21 @@ if __name__ == "__main__":
     )
 
     icecream.ic(env.horizon)
+    
+    builder = env.scene.create_actor_builder()
+    
+    obj_keypoints = env.get_object_keypoints()
+    tool_keypoints = env.get_tool_keypoints()
+
+    for p in obj_keypoints.values():
+        builder.add_box_visual(half_size=[0.005, 0.005, 0.005], color=[1.0, 0.0, 0.0])
+        box = builder.build(name="box")  # Add a box
+        box.set_pose(sapien.Pose(p=p))
+
+    for p in tool_keypoints.values():
+        builder.add_box_visual(half_size=[0.005, 0.005, 0.005], color=[0.0, 1.0, 0.0])
+        box = builder.build(name="box")
+        box.set_pose(sapien.Pose(p=p))
 
     if args.render:
         env.render()

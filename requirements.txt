@@ -22,7 +22,7 @@ zarr
 transformers
 sim_web_visualizer
 sapien==2.2.2
-mplib
+mplib==0.1.1
 webcolors
 chardet
 tensorboard
@@ -54,7 +54,7 @@ numba
 ray
 diffusers
 noise
-mplib==0.1.1
 webcolors
 ftfy
 imageio[ffmpeg]
+gymnasium
